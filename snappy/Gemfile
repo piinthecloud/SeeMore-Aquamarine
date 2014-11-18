@@ -16,15 +16,40 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+# Better Errors replaces the standard Rails error page with a much better and more useful error page
+# Binding of Caller creates advance features for Better Errors gem
+# The binding_of_caller gem provides the Binding#of_caller method.
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
+# Rails Bootstrap Forms is a rails form builder that makes it super easy to
+# integrate twitter bootstrap-style forms into your rails application.
+gem 'bootstrap_form'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
+end
+
+# Required to deploy to Heroku
+gem 'rails_12factor', group: :production
+
+gem "omniauth"
+gem "omniauth-github"
+
+# Keeps API Keys & secret private
+gem 'dotenv-rails', :groups => [:development, :test]
+
+gem 'twitter'
+
+gem 'vimeo'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -37,4 +62,3 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
