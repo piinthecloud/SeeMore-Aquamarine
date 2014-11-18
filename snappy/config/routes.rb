@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "auth/:provider/callback", to: "sessions#create"
 
   #VIMEO
-  post "/search_vimeo",  to: "results#search_vimeo"
+  post "/search_vimeo",  to: "feeds#search_vimeo"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
