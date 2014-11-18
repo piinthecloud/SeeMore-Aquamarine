@@ -19,8 +19,6 @@ ActiveRecord::Schema.define(version: 20141118184457) do
   create_table "feeds", force: true do |t|
     t.string   "handle"
     t.string   "social_media"
-<<<<<<< HEAD
-=======
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,7 +28,6 @@ ActiveRecord::Schema.define(version: 20141118184457) do
     t.integer  "uid"
     t.string   "provider"
     t.integer  "user_id"
->>>>>>> 5153a7668a608d1bba100bb93d4b57b4cae4de92
     t.datetime "created_at"
     t.datetime "updated_at"
   end
