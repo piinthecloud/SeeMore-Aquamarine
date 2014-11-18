@@ -19,10 +19,6 @@ ActiveRecord::Schema.define(version: 20141118183536) do
   create_table "feeds", force: true do |t|
     t.string   "handle"
     t.string   "social_media"
-  end
-
-  create_table "users", force: true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,6 +28,12 @@ ActiveRecord::Schema.define(version: 20141118183536) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "feed_id"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
