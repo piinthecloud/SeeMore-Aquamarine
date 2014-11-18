@@ -204,6 +204,7 @@ DEPENDENCIES
   bootstrap_form
   coffee-rails (~> 4.0.0)
   dotenv-rails
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   omniauth
