@@ -3,7 +3,7 @@ class FeedsController < ApplicationController
   def search_vimeo
     @search = params[:search]
     @vimeo_feeds = Vimeo::Simple::User.info(@search)
-    request.parsed_response
+    @vimeo_results = @vimeo_feeds.parsed_response
   end
 
 end
