@@ -30,9 +30,9 @@ class SessionsController < ApplicationController
     if  auth_hash["uid"] == Oauth.find_by(uid:auth_hash["uid"])
       @user = Oauth.find_by(uid: auth_hash["uid"])
     else
-      Oauth.create(provider:auth_hash["provider"], name:auth_hash["info"]["nickname"], user_id: new_user_id)
+      Oauth.create(provider:auth_hash["provider"], name:auth_hash["info"]["nickname"], uid: auth_hash["uid"], user_id: new_user_id)
       @user = Oauth.find_by(uid: auth_hash["uid"])
-      raise params.inspect
+
 
     end
 
