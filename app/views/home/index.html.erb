@@ -3,10 +3,11 @@
 <a href="/auth/twitter">DON'T Sign-In with Twitter</a>
 
 <br>
-<% @feeds.each do |feed| %>
-  <% array = Vimeo::Simple::User.videos(feed.handle) %><br>
-  <%= titles = array.map { |video| video["title"] } %>
-<% end %>
+
+
+<% parse_vimeo %>
+<%= @vimeo_arrays %>
+
 
 
 <p><em>TWITTER USER SEARCH</em></p>
