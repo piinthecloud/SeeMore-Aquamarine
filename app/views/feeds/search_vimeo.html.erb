@@ -1,5 +1,8 @@
 <h2>Search Results</h2>
+
 <%= image_tag @vimeo_results["portrait_medium"] %>
 <%= @vimeo_results["display_name"] %>
 <%= @vimeo_results["location"] %>
 <%= link_to "Profile", @vimeo_results["profile_url"] %>
+
+<%= button_to "Subscribe to #{@vimeo_results["display_name"]}", create_vimeo_feed_path, method: :post, class: "btn btn-default" %>
