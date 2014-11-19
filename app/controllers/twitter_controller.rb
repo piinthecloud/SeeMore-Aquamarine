@@ -12,8 +12,10 @@ class TwitterController < ApplicationController
 
     render :result
 
-
   end
 
+  def twimeline
+    @twimeline =  client.home_timeline(params["id"])
+  end
 
 end
