@@ -26,6 +26,12 @@ class SessionsController < ApplicationController
 
 
   def find_or_create_from_omniauth(auth_hash)
+    if  auth_hash.uid == Oauth.find_by(uid: auth_hash.uid)
+      @user = Oauth.find_by(uid: auth_hash.uid)
+    else
+      Oauth.create(name:auth_hash.provider, user_id:User.create().id)
+      @user = Oauth.find_by(uid: auth_hash.uid)
+    end
 
 
     # Find or create a user
