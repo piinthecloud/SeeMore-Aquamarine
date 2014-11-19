@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
        @user = find_or_create_from_omniauth
        session[:user_id] = @user.user_id
        redirect_to root_path
-       raise
     end
   end
 
