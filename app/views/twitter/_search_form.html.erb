@@ -1,0 +1,5 @@
+<%= form_tag "/search/twitter", method: :get do %>
+  <%= label_tag :username, "Search" %> &nbsp;
+  <%= text_field_tag :username %>
+  <%= submit_tag "Submit" %>
+<% end %>
