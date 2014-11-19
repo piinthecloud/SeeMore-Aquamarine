@@ -1,9 +1,6 @@
 class FeedsController < ApplicationController
 
-  # def create
-  #   Feed.new(feed_params)
-  #   Feed.save(handle: @vimeo_results["display_name"], social_media: "Vimeo")
-  # end
+
 
   def search_vimeo
     @search = params[:search]
@@ -13,8 +10,5 @@ class FeedsController < ApplicationController
 
   private
 
-  def feed_params
-    params.require(:feed).permit(:handle, :social_media)
-  end
 
 end
