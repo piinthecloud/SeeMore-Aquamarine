@@ -43,6 +43,8 @@ gem 'rails_12factor', group: :production
 
 gem "omniauth"
 gem "omniauth-github"
+gem "omniauth-twitter"
+gem "omniauth-vimeo"
 
 # Keeps API Keys & secret private
 gem 'dotenv-rails', :groups => [:development, :test]
