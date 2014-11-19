@@ -4,8 +4,6 @@
 <%= @vimeo_results["display_name"] %>
 <%= @vimeo_results["location"] %>
 <%= link_to "Profile", @vimeo_results["profile_url"] %>
-<% @handle = @vimeo_results["profile_url"] %>
-<% @handle_2 =  @handle.scan(/\/\w+.$/).join("").delete("/") %>
 
 <%= form_for @feed, url: create_vimeo_feed_path, method: :post do |f| %>
   <%= f.hidden_field :handle, :value => get_vimeo_handle(@vimeo_results["profile_url"]) %>
