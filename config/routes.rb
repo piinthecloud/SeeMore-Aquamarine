@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get "auth/:provider/callback", to: "sessions#create"
 
+  get "/search/twitter", to: "twitter#search" 
+
   #VIMEO
   get "/search_vimeo", to: "feeds#search_vimeo"
   post "/search_vimeo",  to: "feeds#search_vimeo"

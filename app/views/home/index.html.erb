@@ -1,8 +1,13 @@
 
 <a href="/auth/github">Sign-In with Github</a>
 <a href="/auth/twitter">DON'T Sign-In with Twitter</a>
+
 <br>
 <% @feeds.each do |feed| %>
   <% array = Vimeo::Simple::User.videos(feed.handle) %><br>
   <%= titles = array.map { |video| video["title"] } %>
 <% end %>
+
+
+<p><em>TWITTER USER SEARCH</em></p>
+<%= render "/twitter/search_form" %>
