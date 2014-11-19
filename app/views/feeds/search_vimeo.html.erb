@@ -5,4 +5,8 @@
 <%= @vimeo_results["location"] %>
 <%= link_to "Profile", @vimeo_results["profile_url"] %>
 
-<%= button_to "Subscribe to #{@vimeo_results["display_name"]}", create_vimeo_feed_path, method: :post, class: "btn btn-default" %>
+<%= form_for @feed, url: create_vimeo_feed_path, method: :post do |f| %>
+  <%= f.hidden_field :handle, :value => @vimeo_results["id"].to_s %>
+  <%= f.hidden_field :social_media, :value => "Vimeo" %>
+  <%= f.submit "Subscribe", :class => "btn btn-default" %>
+<% end %>
