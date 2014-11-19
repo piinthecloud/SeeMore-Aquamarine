@@ -5,4 +5,5 @@
 <%= @vimeo_results["location"] %>
 <%= link_to "URL", @vimeo_results["url"] %>
 <%= @vimeo_results["bio"] %>
-<%= button_to ""
+
+<%= button_to "Subscribe to #{@vimeo_results["display_name"]}", create_feed_path, method: :post, class: "btn btn-default" %>
