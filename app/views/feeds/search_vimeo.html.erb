@@ -3,5 +3,10 @@
 <%= image_tag @vimeo_results["portrait_medium"] %>
 <%= @vimeo_results["display_name"] %>
 <%= @vimeo_results["location"] %>
-<%= link_to "URL", @vimeo_results["url"] %>
-<%= @vimeo_results["bio"] %>
+<%= link_to "Profile", @vimeo_results["profile_url"] %>
+
+<%= form_for @feed, url: create_vimeo_feed_path, method: :post do |f| %>
+  <%= f.hidden_field :handle, :value => get_vimeo_handle(@vimeo_results["profile_url"]) %>
+  <%= f.hidden_field :social_media, :value => "Vimeo" %>
+  <%= f.submit "Subscribe", :class => "btn btn-default" %>
+<% end %>
