@@ -1,17 +1,14 @@
 <h2>Search Results</h2>
-<%= @vimeo_results %>
 
 <%= image_tag @vimeo_results["portrait_medium"] %>
 <%= @vimeo_results["display_name"] %>
 <%= @vimeo_results["location"] %>
 <%= link_to "Profile", @vimeo_results["profile_url"] %>
+<% @handle = @vimeo_results["profile_url"] %>
+<% @handle_2 =  @handle.scan(/\/\w+.$/).join("").delete("/") %>
 
 <%= form_for @feed, url: create_vimeo_feed_path, method: :post do |f| %>
-  <%= f.hidden_field :handle, :value => @vimeo_results["id"].to_s %>
+  <%= f.hidden_field :handle, :value => get_vimeo_handle(@vimeo_results["profile_url"]) %>
   <%= f.hidden_field :social_media, :value => "Vimeo" %>
   <%= f.submit "Subscribe", :class => "btn btn-default" %>
 <% end %>
-
-
-<% @handle = @vimeo_results["display_name"] %>
-<% @handle[-]
