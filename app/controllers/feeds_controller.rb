@@ -4,7 +4,11 @@ class FeedsController < ApplicationController
     @feed = Feed.new
     @search = params[:search]
     @vimeo_feeds = Vimeo::Simple::User.info(@search)
-    @vimeo_results = @vimeo_feeds.parsed_response
+    # if @vimeo_results.count > 0
+    #   @vimeo_results = @vimeo_feeds.parsed_response
+    # else
+    #   redirect_to root_path, :notice => "No results. Sorry :-("
+    # end
   end
 
   def create_vimeo_feed
