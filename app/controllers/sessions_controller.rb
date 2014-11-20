@@ -21,17 +21,27 @@ class SessionsController < ApplicationController
   end
 
   def new_user_id
-
     if session[:user_id]
       session[:user_id]
     else
       @user = User.create()
       @user.id
     end
+
+  end
+
+  def log_out
+    session.delete(:user_id)
+    @user = nil
+  end
+
+  def destroy
+    log_out
+    redirect_to root_path
   end
 
 
- protected
+private
 
   def auth_hash
     request.env['omniauth.auth']
