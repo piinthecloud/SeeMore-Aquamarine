@@ -7,7 +7,11 @@ class FeedsController < ApplicationController
       redirect_to root_path, :notice => "Try again. Don't include any spaces in your search"
     else
       @vimeo_feeds = Vimeo::Simple::User.info(@search)
-      @vimeo_results = @vimeo_feeds.parsed_response
+      if @vimeo_feeds.length > 0
+        @vimeo_results = @vimeo_feeds.parsed_response
+      else
+        redirect_to root_path, :notice => "Vimeo user not found."
+      end
     end
   end
 
