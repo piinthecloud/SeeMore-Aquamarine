@@ -11,16 +11,22 @@
   <%= csrf_meta_tags %>
 
 </head>
+
 <body>
+  <%= link_to "Log out", logout_path, method: :delete %>
 
-<p><em>VIMEO USER SEARCH</em></p>
-<form id="search" action="/search_vimeo" method="POST">
-  <input type="text" name="search" placeholder="Search">
-  <input type="submit" value="Go!">
-</form>
+<div class="container">
+  <p><em><%= link_to "HOME", root_path %></em></p>
 
-<%= yield %>
+  <p><em>VIMEO USER SEARCH</em></p>
+  <form id="search" action="/search_vimeo" method="POST">
+    <input type="text" name="search" placeholder="Search">
+    <input type="submit" value="Go!">
+  </form>
 
+  <%= yield %>
+
+</div>
 
 </body>
 </html>
