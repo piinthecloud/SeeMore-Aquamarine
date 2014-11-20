@@ -1,5 +1,4 @@
 <%= form_tag "/search/twitter", method: :get do %>
-  <%= label_tag :username, "Search" %> &nbsp;
-  <%= search_field_tag :username, placeholder: "Search" %>
+  <%= search_field_tag :username, nil ,placeholder: "Search" %>
   <%= submit_tag "Go!" %>
 <% end %>

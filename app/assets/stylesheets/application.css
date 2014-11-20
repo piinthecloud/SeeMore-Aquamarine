@@ -9,7 +9,21 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
+ *= bootstrap.min
  *= require_tree .
  *= require_self
  */
+
+html{
+  margin: 15px;
+
+  }
+
+body{
+    color: black;
+    margin: 0px;
+    padding:0;
+    padding-bottom: 40px;
+    margin-bottom: 20px;
+    min-height: 900px;
+}

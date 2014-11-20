@@ -2,6 +2,6 @@
   <% @twusers.each do |u| %>
     <li style="text-decoration: none;">
       <%= image_tag( u.profile_image_uri(size = :normal) )%>
-      <%= u.screen_name %> <%= button_to "Subscribe", feed_path(u.screen_name) %></li>
+      <%= u.screen_name %> <%= button_to "Subscribe", feed_path(u.screen_name), form_class: "btn btn-default" %></li><br />
   <% end %>
 </ul>

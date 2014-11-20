@@ -6,9 +6,8 @@ module FeedsHelper
   end
 
   def parse_vimeo
-    @feeds.each do |feed|
-      user_videos = Vimeo::Simple::User.all_videos(feed.handle)
-      @user_videos_by_date = user_videos.map { |video| video["upload_date"] }.flatten
-    end
+    @get_vimeo = @feeds.collect { |feed| Vimeo::Simple::User.all_videos(feed.handle).parsed_response }.flatten!
+    @vimeos = @get_vimeo.sort_by { |video| video["upload_date"] }.reverse
   end
+
 end
