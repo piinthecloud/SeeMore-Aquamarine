@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   get "auth/:provider/callback", to: "sessions#create"
 
-  get "/search/twitter", to: "twitter#search" 
+  get "/search/twitter", to: "twitter#search"
+
+  delete "/", to: "sessions#destroy", as: :logout
 
   #VIMEO
   get "/search_vimeo", to: "feeds#search_vimeo"
