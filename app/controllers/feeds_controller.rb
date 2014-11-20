@@ -3,12 +3,12 @@ class FeedsController < ApplicationController
   def search_vimeo
     @feed = Feed.new
     @search = params[:search]
-    @vimeo_feeds = Vimeo::Simple::User.info(@search)
-    # if @vimeo_results.count > 0
-    #   @vimeo_results = @vimeo_feeds.parsed_response
-    # else
-    #   redirect_to root_path, :notice => "No results. Sorry :-("
-    # end
+    if @search.include?(" ")
+      redirect_to root_path, :notice => "Try again. Don't include any spaces in your search"
+    else
+      @vimeo_feeds = Vimeo::Simple::User.info(@search)
+      @vimeo_results = @vimeo_feeds.parsed_response
+    end
   end
 
   def create_vimeo_feed
