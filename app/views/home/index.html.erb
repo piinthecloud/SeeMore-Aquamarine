@@ -1,9 +1,14 @@
 <p class="notice" ><%= notice %></p>
 
-<div class="media">
-  <a href= "/auth/twitter"><%=image_tag("twitter.png")  %></a>
-  <a href= "/auth/github"><%=image_tag("Github.png")  %></a>
-</div>
+<% if logged_in? %>
+  <%= link_to "Log out", logout_path, method: :delete %>
+<% else %>
+  <div class="media">
+    <a href= "/auth/twitter"><%=image_tag("twitter.png")  %></a>
+    <a href= "/auth/github"><%=image_tag("Github.png")  %></a>
+  </div>
+<% end %>
+
 
 <br>
 
