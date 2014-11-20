@@ -14,6 +14,15 @@ class TwitterController < ApplicationController
 
   end
 
+  def create_feed
+    @feed = Feed.new()
+    @feed.handle = params["screen_name"]
+    @feed.social_media = "twitter"
+    if @feed.save
+      redirect_to root_path
+    end
+  end
+
   def collect_with_max_id(collection=[], max_id=nil, &block)
     response = yield(max_id)
     collection += response
