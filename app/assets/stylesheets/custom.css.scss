@@ -26,11 +26,23 @@ body {
   background-repeat: repeat
 }
 
+
+
 .search-container {
-  background-image: url(image_path("pinkmonster.png"));
-  background-repeat: repeat
+  background-image: url(image_path("pinkmonster.png")) ;
+  background-repeat: repeat;
+  margin-left: auto ;
+  margin-right: auto ;
+  width: 700px ;
+  min-height: 1000px;
+  text-align: center;
+  font-weight: bold;
+
 
 }
+
+
+
 
 .login {
   padding: 15px;
