@@ -26,15 +26,30 @@ body {
   background-repeat: repeat
 }
 
+.leftLogo {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 
+  float: left
+}
+
+.rightLogo {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  float: right
+}
 
 .search-container {
-  background-image: url(image_path("pinkmonster.png")) ;
-  background-repeat: repeat;
+  // background-image: url(image_path("pinkmonster.png")) ;
+  // background-repeat: repeat;
+  background-color: white;
   margin-left: auto ;
   margin-right: auto ;
-  width: 700px ;
-  min-height: 1000px;
+  width: 200px ;
+  min-height: 225px;
   text-align: center;
   font-weight: bold;
 
@@ -48,9 +63,10 @@ body {
   padding: 15px;
   background-color: #7FFF00;
   // border: 1px solid pink;
-  position:absolute;
-  top:0;
-  right:0;
+  // position:absolute;
+  // top:0;
+  // right:0;
+  text-align: center;
   }
 
 .media img{
