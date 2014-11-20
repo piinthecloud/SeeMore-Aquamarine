@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// *{
+//   border: 1px solid pink;
+// }
+
 ul.vimeo-feed {
   list-style-type: none;
 }
@@ -12,4 +16,24 @@ ul.vimeo-feed {
 .notice {
   font-size: 1.2em;
   color: #ff0000;
+}
+
+body {
+  background-image: url(image_path("bg_stars.gif"));
+  background-repeat: repeat
+}
+
+html{
+  margin: 15px;
+
+}
+
+body{
+  color: black;
+  margin: 0px;
+  padding:0;
+  padding-bottom: 40px;
+  margin-bottom: 20px;
+  min-height: 900px;
+
 }

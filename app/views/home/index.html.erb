@@ -9,18 +9,17 @@
   </div>
 <% end %>
 
-
 <br>
 
 <p><em>TWITTER USER SEARCH</em></p>
 <%= render "/twitter/search_form" %>
 
-<% parse_vimeo %>
+<!-- <#% parse_vimeo %> -->
 
-<% @vimeos.each do |video| %>
+<!-- <#% @vimeos.each do |video| %>
   <ul class="vimeo-feed">
-      <li><%= video["user_name"] %> posted on <%= video["upload_date"] %></li>
-      <li><iframe src="//player.vimeo.com/video/<%= video["id"] %>" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></li>
-      <li>Watch on <%= link_to "Vimeo", video["url"], :target =>"_blank" %></li>
+      <li><#%= video["user_name"] %> posted on <#%= video["upload_date"] %></li>
+      <li><iframe src="//player.vimeo.com/video/<#%= video["id"] %>" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></li>
+      <li>Watch on <#%= link_to "Vimeo", video["url"], :target =>"_blank" %></li>
   </ul>
-<% end %>
+<#% end %> -->
