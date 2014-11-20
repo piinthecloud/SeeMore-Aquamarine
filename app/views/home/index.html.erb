@@ -1,7 +1,7 @@
 <p class="notice" ><%= notice %></p>
 
 <div class= "login">
-   
+
 <% if logged_in? %>
   <p>Authenticate</p>
   <div class="media">
@@ -45,10 +45,16 @@
       <li><iframe src="//player.vimeo.com/video/<%= video["id"] %>" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></li>
       <li>Watch on <%= link_to "Vimeo", video["url"], :target =>"_blank" %></li>
   </ul>
-<<<<<<< HEAD
-<% end %>
-=======
-<#% end %> -->
 
+<% end %>
+
+<div class="leftLogo">
+<a href= "/"><%=image_tag("planet_snappy_sm.png")  %></a>
+</div>
+
+<<<<<<< HEAD
 <a href= "/"><%=image_tag("planet_snappy.png")  %></a>
->>>>>>> 9c2654042aeed96b913674c5fc7467d96be9b982
+
+<div class="rightLogo">
+  <a href= "/"><%=image_tag("planet_snappy_sm_hz.png")  %></a>
+</div>
