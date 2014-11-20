@@ -1,6 +1,6 @@
 <p class="notice" ><%= notice %></p>
 
-<% if logged_in? %>
+<div class= "login"> <% if logged_in? %>
   <%= link_to "Log out", logout_path, method: :delete %>
 <% else %>
   <div class="media">
@@ -8,11 +8,24 @@
     <a href= "/auth/github"><%=image_tag("Github.png")  %></a>
   </div>
 <% end %>
+</div>
 
 <br>
 
-<p><em>TWITTER USER SEARCH</em></p>
-<%= render "/twitter/search_form" %>
+<div class="search-container">
+
+  <p><em><%= link_to "HOME", root_path %></em></p>
+
+  <p><em>VIMEO USER SEARCH</em></p>
+  <form id="search" action="/search_vimeo" method="POST">
+    <input type="text" name="search" placeholder="Search">
+    <input type="submit" value="Go!">
+  </form>
+
+  <p><em>TWITTER USER SEARCH</em></p>
+  <%= render "/twitter/search_form" %>
+
+</div>
 
 <!-- <#% parse_vimeo %> -->
 

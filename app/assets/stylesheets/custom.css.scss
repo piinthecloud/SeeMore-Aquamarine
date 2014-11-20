@@ -13,22 +13,36 @@ ul.vimeo-feed {
   width: 50%;
 }
 
+
+
+html{
+  margin: 15px;
+
+
+}
+
 body {
   background-image: url(image_path("bg_stars.gif"));
   background-repeat: repeat
 }
 
-html{
-  margin: 15px;
+.search-container {
+  background-image: url(image_path("pinkmonster.png"));
+  background-repeat: repeat
 
 }
 
-body{
-  color: black;
-  margin: 0px;
-  padding:0;
-  padding-bottom: 40px;
-  margin-bottom: 20px;
-  min-height: 900px;
+.login {
+  padding: 15px;
+  background-color: #7FFF00;
+  // border: 1px solid pink;
+  position:absolute;
+  top:0;
+  right:0;
+  }
 
+.media img{
+
+  height: 50px;
+  padding: 4px;
 }
