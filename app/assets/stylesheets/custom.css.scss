@@ -15,7 +15,11 @@ ul.vimeo-feed {
 
 .notice {
   font-size: 1.2em;
-  color:#0affff;
+  color: #f15a35;
+}
+
+.feed {
+  color: #ffffff;
 }
 
 html{
@@ -24,7 +28,7 @@ html{
 
 body {
   background-image: url(image_path("bg_stars.gif"));
-  background-repeat: repeat
+  background-repeat: repeat;
 }
 
 .leftLogo {

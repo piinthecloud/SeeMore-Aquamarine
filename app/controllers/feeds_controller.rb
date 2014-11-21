@@ -19,6 +19,7 @@ class FeedsController < ApplicationController
     @feed = Feed.new(feed_params)
     if @feed.save
       redirect_to root_path
+      @subscription ? @subscription : @subscription=Subscription.create(:user_id => session[:user_id], :feed_id => @feed.id)
     end
   end
 
