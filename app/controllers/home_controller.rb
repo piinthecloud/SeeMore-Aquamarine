@@ -6,4 +6,5 @@ class HomeController < ApplicationController
     #   @all_vimeos = @user.feeds.where(social_media: "Vimeo")
     # end
   end
+
 end

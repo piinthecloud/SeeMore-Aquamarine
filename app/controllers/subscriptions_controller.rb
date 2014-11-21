@@ -5,11 +5,11 @@ class SubscriptionsController < ApplicationController
       if Feed.find_by(handle: params[:screen_name])
         @user.feeds << Feed.find_by(handle: params[:screen_name])
       else
-        @feed = Feed.create(handle: params[:screen_name])
+        @feed = Feed.create(handle: params[:screen_name], social_media: "twitter")
         @user.feeds << Feed.find_by(handle: params[:screen_name])
       end
 
-      redirect_to result
+      redirect_to "/"
 
   end
 
