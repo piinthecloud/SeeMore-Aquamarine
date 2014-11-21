@@ -16,8 +16,8 @@
     <%= form_for @feed, url: create_vimeo_feed_path, method: :post, :class => "col-xs-4" do |f| %>
       <%= f.hidden_field :handle, :value => get_vimeo_handle(@vimeo_results["profile_url"]) %>
       <%= f.hidden_field :social_media, :value => "Vimeo" %>
+      <%= f.hidden_field :id, :value => @feed.id %>
       <%= f.submit "Subscribe", :class => "btn btn-default" %>
     <% end %>
-
 
 </div>

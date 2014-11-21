@@ -10,6 +10,7 @@ class SubscriptionsController < ApplicationController
       end
 
       redirect_to result
+
   end
 
 end

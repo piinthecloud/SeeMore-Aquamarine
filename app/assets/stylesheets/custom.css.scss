@@ -13,17 +13,26 @@ ul.vimeo-feed {
   width: 50%;
 }
 
+.notice {
+  font-size: 1.2em;
+  color: #f15a35;
+}
 
+.feed {
+  color: #ffffff;
+}
+
+.no-vimeos {
+  color: #ffffff;
+}
 
 html{
   margin: 15px;
-
-
 }
 
 body {
   background-image: url(image_path("bg_stars.gif"));
-  background-repeat: repeat
+  background-repeat: repeat;
 }
 
 .leftLogo {
@@ -57,18 +66,20 @@ body {
 }
 
 
-
-
 .login {
-  padding: 15px;
+  // padding: 15px;
   background-color: #7FFF00;
   // border: 1px solid pink;
   // position:absolute;
   // top:0;
   // right:0;
+  margin-bottom: 1em;
   text-align: center;
-  }
+  height: 140px;
 
+
+
+}
 .media img{
 
   height: 50px;
