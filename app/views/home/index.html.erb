@@ -1,3 +1,4 @@
+<div class= "login">
 <% if logged_in? %>
 
   <p>Authenticate</p>
@@ -40,7 +41,6 @@
   </div>
 
 <% else %>
-  <div class= "login">
     <div class="media">
       <p>Sign in with</p>
       <a href= "/auth/twitter"><%=image_tag("twitter.png")  %></a>
@@ -49,7 +49,7 @@
   </div>
 
 <% end %>
-
+</div>
 <br>
 
 
