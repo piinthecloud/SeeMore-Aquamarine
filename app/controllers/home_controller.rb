@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @feeds = Feed.all
+    @feeds = Feed.where(social_media: "Vimeo")
   end
 end
