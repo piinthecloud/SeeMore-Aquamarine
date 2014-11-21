@@ -45,6 +45,7 @@ gem "omniauth"
 gem "omniauth-github"
 gem "omniauth-twitter"
 gem "omniauth-vimeo"
+gem "omniauth-instagram", '~> 1.0.1'
 
 # Keeps API Keys & secret private
 gem 'dotenv-rails', :groups => [:development, :test]

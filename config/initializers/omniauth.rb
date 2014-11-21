@@ -10,4 +10,6 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 
   provider :vimeo, ENV["VIMEO_CLIENT_ID"], ENV["VIMEO_SECRET"]
 
+  provider :instagram, ENV["INSTAGRAM_CLIENT_ID"], ENV["INSTAGRAM_SECRET"]
+
 end
