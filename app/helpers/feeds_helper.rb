@@ -1,6 +1,9 @@
 module FeedsHelper
 
-
+  def all_vimeos
+    @all_vimeos = @current_user.feeds.where(social_media: "Vimeo")
+  end
+  
   def get_vimeo_handle(url)
     new_url = url.scan(/\/\w+.$/).join("").delete("/")
   end
