@@ -11,7 +11,7 @@
   </div>
 
 
-  <% else %>
+<% else %>
   <div class= "login">
     <div class="media">
       <p>Sign in with</p>
@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <% end %>
+<% end %>
 </div>
 
 
@@ -40,23 +40,21 @@
     <p><em>TWITTER USER SEARCH</em></p>
       <%= render "/twitter/search_form" %>
   </div>
-
-  <div class="feed">
+  <% if !@current_user.feeds.where(social_media: "Vimeo").empty? %>
+   <div class="feed">
+    <% all_vimeos %>
     <% parse_vimeo %>
-    <% if @vimeos.count > 0 %>
-        <% @vimeos.each do |video| %>
-          <ul class="vimeo-feed">
-            <li><%= video["user_name"] %> posted on <%= video["upload_date"] %></li>
-            <li><iframe src="//player.vimeo.com/video/<%= video["id"] %>" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></li>
-            <li>Watch on <%= link_to "Vimeo", video["url"], :target =>"_blank" %></li>
-          </ul>
-        <% end %>
-    <% else %>
-      <p class="no-vimeos">Search for users to grow your feed!</p>
-    <% end %>
+      <% @vimeos.each do |video| %>
+        <ul class="vimeo-feed">
+          <li><%= video["user_name"] %> posted on <%= video["upload_date"] %></li>
+          <li><iframe src="//player.vimeo.com/video/<%= video["id"] %>" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></li>
+          <li>Watch on <%= link_to "Vimeo", video["url"], :target =>"_blank" %></li>
+        </ul>
+      <% end %>
+  <% else %>
+    <p class="no-vimeos">Search for Vimeo users to grow your feed!</p>
+  <% end %>
   </div>
-
-
 
 <% end %>
 </div>
