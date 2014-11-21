@@ -5,16 +5,17 @@ Rails.application.routes.draw do
   get "auth/:provider/callback", to: "sessions#create"
 
   # TWITTER
-  get   "/search/twitter",             to: "twitter#search"
-  post  "/feeds/twitter/:screen_name", to: "twitter#create_feed", as: :feed
-  get   "/search/twitter",             to: "twitter#search"
+  get   "/search/twitter",              to: "twitter#search"
+  post  "/feeds/twitter/:screen_name",  to: "subscriptions#subscribe", as: :feed
+  get   "/search/twitter",              to: "twitter#search"
+  get   "/feeds/twitter/:handle",       to: "subscriptions#subscribe"
 
   delete "/", to: "sessions#destroy", as: :logout
 
   #VIMEO
-  get "/search_vimeo",   to: "feeds#search_vimeo"
+  get "/search_vimeo", to: "feeds#search_vimeo"
   post "/search_vimeo",  to: "feeds#search_vimeo"
-  post "/feeds",         to: "subscriptions#subscribe", as: :create_vimeo_feed
+  post "/feeds",  to: "feeds#create_vimeo_feed", as: :create_vimeo_feed
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
