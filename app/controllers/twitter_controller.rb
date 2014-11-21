@@ -2,8 +2,8 @@ class TwitterController < ApplicationController
 
   def search
     client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV["TWITTER_CLIENT_ID"]
-      config.consumer_secret     = ENV["TWITTER_CLIENT_SECRET"]
+      config.consumer_key        = ENV["TWITTER_KEY"]
+      config.consumer_secret     = ENV["TWITTER_SECRET"]
       config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
       config.access_token_secret = ENV["TWITTER_ACCESS_TOKEN_SECRET"]
     end
@@ -35,6 +35,11 @@ class TwitterController < ApplicationController
       options[:max_id] = max_id unless max_id.nil?
       user_timeline(user, options)
     end
+  end
+
+  def twfeed
+    @twfeed = client.get_all_tweets("sferik")
+
   end
 
 end
