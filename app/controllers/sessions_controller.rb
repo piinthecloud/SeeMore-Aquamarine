@@ -12,11 +12,12 @@ class SessionsController < ApplicationController
 
 
   def find_or_create_from_omniauth
+
     if Oauth.find_by(uid:auth_hash["uid"])
-      @user = Oauth.find_by(uid: auth_hash["uid"])
+      Oauth.find_by(uid: auth_hash["uid"])
     else
       Oauth.create(provider:auth_hash["provider"], name:auth_hash["info"]["nickname"], uid: auth_hash["uid"], user_id: new_user_id)
-      @user = Oauth.find_by(uid: auth_hash["uid"])
+      Oauth.find_by(uid: auth_hash["uid"])
     end
   end
 
