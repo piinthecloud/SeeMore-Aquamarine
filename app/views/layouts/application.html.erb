@@ -12,35 +12,22 @@
 
 </head>
 
-<body class="body">
-
-    <% if logged_in? %>
-
-    <div class= "login">
-      <div class="media">
-        <p>Authenticate</p>
-        <a href= "/auth/twitter"><%=image_tag("twitter.png")  %></a>
-        <a href= "/auth/github"><%=image_tag("Github.png")  %></a>
-        <a href= "/auth/vimeo"><%=image_tag("vimeo.png")  %></a>
-        <p><%= link_to "Log out", logout_path, method: :delete %></p>
-    </div>
+<br>
 
 
-    <% else %>
-
-    <div class= "login">
-      <div class="media">
-        <p>Sign in with</p>
-        <a href= "/auth/twitter"><%=image_tag("twitter.png")  %></a>
-        <a href= "/auth/github"><%=image_tag("Github.png")  %></a>
-        <a href= "/auth/vimeo"><%=image_tag("vimeo.png")  %></a>
-      </div>
-    </div>
-
-    <% end %>
 
 
   <%= yield %>
+
+  <div class="leftLogo">
+    <a href= "/"><%=image_tag("planet_snappy_sm.png")  %></a>
+  </div>
+
+  <a href= "/"><%=image_tag("planet_snappy.png")  %></a>
+
+  <div class="rightLogo">
+    <a href= "/"><%=image_tag("planet_snappy_sm_hz.png")  %></a>
+  </div>
 
 
 

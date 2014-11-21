@@ -1,5 +1,30 @@
 
-</div>
+
+<% if logged_in? %>
+  <div class= "login">
+    <div class="media">
+      <p>Authenticate</p>
+      <a href= "/auth/twitter"><%=image_tag("twitter.png")  %></a>
+      <a href= "/auth/github"><%=image_tag("Github.png")  %></a>
+      <a href= "/auth/vimeo"><%=image_tag("vimeo.png")  %></a>
+      <p><%= link_to "Log out", logout_path, method: :delete %></p>
+    </div>
+  </div>
+
+
+<% else %>
+  <div class= "login">
+    <div class="media">
+      <p>Sign in with</p>
+      <a href= "/auth/twitter"><%=image_tag("twitter.png")  %></a>
+      <a href= "/auth/github"><%=image_tag("Github.png")  %></a>
+      <a href= "/auth/vimeo"><%=image_tag("vimeo.png")  %></a>
+    </div>
+  </div>
+
+<% end %>
+
+
 
 <% if logged_in? %>
 <div class="search-container">
@@ -14,56 +39,29 @@
     </form>
   </div>
 
-  <div class="searchbox">
-    <p><em>TWITTER USER SEARCH</em></p>
-    <%= render "/twitter/search_form" %>
+  <div class="searchbox"><p><em>TWITTER USER SEARCH</em></p>
+    <%= render "/twitter/search_form" %></div>
   </div>
-
-
-  <% if !@current_user.feeds.where(social_media: "Vimeo").empty? %>
-   <div class="feed">
-    <% all_vimeos %>
-    <% parse_vimeo %>
-      <% @vimeos.each do |video| %>
-        <ul class="vimeo-feed">
-          <li><%= video["user_name"] %> posted on <%= video["upload_date"] %></li>
-          <li><iframe src="//player.vimeo.com/video/<%= video["id"] %>" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></li>
-          <li>Watch on <%= link_to "Vimeo", video["url"], :target =>"_blank" %></li>
-        </ul>
-      <% end %>
   <% else %>
-    <p class="no-vimeos">Search for Vimeo users to grow your feed!</p>
-  <% end %>
-
+  <div>
   </div>
+  <% end %>
+</div>
 
 
+
+<% if !@current_user.feeds.where(social_media: "Vimeo").empty? %>
 <div class="feed">
-  <% parse_vimeo %>
-  <% if @vimeos.count > 0 %>
-  <% @vimeos.each do |video| %>
-  <ul class="vimeo-feed">
-    <li><%= video["user_name"] %> posted on <%= video["upload_date"] %></li>
-    <li><iframe src="//player.vimeo.com/video/<%= video["id"] %>" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></li>
-    <li>Watch on <%= link_to "Vimeo", video["url"], :target =>"_blank" %></li>
-  </ul>
-  <% end %>
-  <% else %>
-  <p class="no-vimeos">Search for users to grow your feed!</p>
-  <% end %>
-</div>
-
+<% all_vimeos %>
+<% parse_vimeo %>
+<% @vimeos.each do |video| %>
+<ul class="vimeo-feed">
+<li><%= video["user_name"] %> posted on <%= video["upload_date"] %></li>
+<li><iframe src="//player.vimeo.com/video/<%= video["id"] %>" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></li>
+<li>Watch on <%= link_to "Vimeo", video["url"], :target =>"_blank" %></li>
+</ul>
 <% end %>
-
-<br>
-
-
-<div class="leftLogo">
-  <a href= "/"><%=image_tag("planet_snappy_sm.png")  %></a>
-</div>
-
-<a href= "/"><%=image_tag("planet_snappy.png")  %></a>
-
-<div class="rightLogo">
-  <a href= "/"><%=image_tag("planet_snappy_sm_hz.png")  %></a>
+<% else %>
+<p class="no-vimeos">Search for Vimeo users to grow your feed!</p>
+<% end %>
 </div>
