@@ -13,13 +13,12 @@ ul.vimeo-feed {
   width: 50%;
 }
 
-.notice {
-  font-size: 1.2em;
-  color: #ff0000;
-}
 
-html {
+
+html{
   margin: 15px;
+
+
 }
 
 body {
@@ -53,22 +52,25 @@ body {
   min-height: 225px;
   text-align: center;
   font-weight: bold;
+
+
 }
+
+
+
 
 .login {
   padding: 15px;
   background-color: #7FFF00;
   // border: 1px solid pink;
-  position:absolute;
-  top:0;
-  right:0;
   // position:absolute;
   // top:0;
   // right:0;
   text-align: center;
   }
 
-.media img {
+.media img{
+
   height: 50px;
   padding: 4px;
 }
