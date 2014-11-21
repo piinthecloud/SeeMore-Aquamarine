@@ -24,6 +24,8 @@
   <% end %>
 </div>
 
+
+<% if logged_in? %>
   <div class="search-container">
     <p><em><%= link_to "HOME", root_path %></em></p>
 
@@ -53,6 +55,8 @@
       <p class="no-vimeos">Search for users to grow your feed!</p>
     <% end %>
   </div>
+  <% else %>
+  <% end %>
 
 
 
