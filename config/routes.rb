@@ -7,15 +7,22 @@ Rails.application.routes.draw do
   delete "/", to: "sessions#destroy",                                 as: :logout
 
   # TWITTER
-  get   "/search/twitter",             to: "twitter#search"
-  post  "/feeds/twitter/:screen_name", to: "twitter#create_feed",     as: :feed
-  get   "/search/twitter",             to: "twitter#search"
+# <<<<<<< HEAD
+  get   "/search/twitter",              to: "twitter#search"
+  post  "/feeds/twitter/:screen_name",  to: "subscriptions#subscribe", as: :feed
+  get   "/search/twitter",              to: "twitter#search"
+  get   "/feeds/twitter/:handle",       to: "subscriptions#subscribe"
+# =======
+  # get   "/search/twitter",             to: "twitter#search"
+  # post  "/feeds/twitter/:screen_name", to: "twitter#create_feed",     as: :feed
+  # get   "/search/twitter",             to: "twitter#search"
+# >>>>>>> 4f09b22912bd1ba0e0828a72ce605290ef834989
 
   #VIMEO
   get "/search_vimeo",                 to: "feeds#search_vimeo"
   post "/search_vimeo",                to: "feeds#search_vimeo"
   post "/feeds",                       to: "feeds#create_vimeo_feed", as: :create_vimeo_feed
-  
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
