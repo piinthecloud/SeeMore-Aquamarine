@@ -1,29 +1,12 @@
 <% if logged_in? %>
 
   <p>Authenticate</p>
-  <div class="media">
-  <a href= "/auth/twitter"><%=image_tag("twitter.png")  %></a>
-  <a href= "/auth/github"><%=image_tag("Github.png")  %></a>
-  <a href= "/auth/vimeo"><%=image_tag("vimeo.png")  %></a>
-  <p><%= link_to "Log out", logout_path, method: :delete %></p>
 
-  </div>
-
-<% else %>
   <div class="media">
-    <p>Sign in with</p>
     <a href= "/auth/twitter"><%=image_tag("twitter.png")  %></a>
     <a href= "/auth/github"><%=image_tag("Github.png")  %></a>
     <a href= "/auth/vimeo"><%=image_tag("vimeo.png")  %></a>
-
-  <div class= "login">
-    <p>Authenticate</p>
-    <div class="media">
-      <a href= "/auth/twitter"><%=image_tag("twitter.png")  %></a>
-      <a href= "/auth/github"><%=image_tag("Github.png")  %></a>
-      <a href= "/auth/vimeo"><%=image_tag("vimeo.png")  %></a>
-      <p><%= link_to "Log out", logout_path, method: :delete %></p>
-    </div>
+    <p><%= link_to "Log out", logout_path, method: :delete %></p>
   </div>
 
   <div class="search-container">
@@ -41,16 +24,21 @@
       <%= render "/twitter/search_form" %>
     </div>
 
-  <div class="feed">
     <% parse_vimeo %>
+    <% if @vimeos.count > 0 %>
+      <div class="feed">
+        <% @vimeos.each do |video| %>
+          <ul class="vimeo-feed">
+            <li><%= video["user_name"] %> posted on <%= video["upload_date"] %></li>
+            <li><iframe src="//player.vimeo.com/video/<%= video["id"] %>" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></li>
+            <li>Watch on <%= link_to "Vimeo", video["url"], :target =>"_blank" %></li>
+        < /ul>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="no-vimeos">Search for users to grow your feed!</p>
+      <% end %>
 
-    <% @vimeos.each do |video| %>
-      <ul class="vimeo-feed">
-          <li><%= video["user_name"] %> posted on <%= video["upload_date"] %></li>
-          <li><iframe src="//player.vimeo.com/video/<%= video["id"] %>" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></li>
-          <li>Watch on <%= link_to "Vimeo", video["url"], :target =>"_blank" %></li>
-      </ul>
-    <% end %>
   </div>
 
 <% else %>
