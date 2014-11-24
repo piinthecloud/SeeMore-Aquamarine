@@ -21,8 +21,9 @@
 
 </div>
   <div class="feed">
+
     <% if !@current_user.feeds.where(social_media: "Vimeo").empty? %>
-      <%= render "/home/vimeofeed" %>
+      <%= render "/vimeos/vimeofeed" %>
 
       <% else %>
           <p class="no-vimeos">Search for Vimeo users to grow your feed!</p>
