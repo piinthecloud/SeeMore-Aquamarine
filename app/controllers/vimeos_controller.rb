@@ -7,10 +7,10 @@ class VimeosController < ApplicationController
       redirect_to root_path, :notice => "You didn't search for anything. Try again."
     elsif @search.include?(" ")
       @vimeo_results = Beemo::User.search(@search.gsub(" ", "%20"))
-    # elsif Beemo::User.search(@search) == URI::InvalidURIError
-      # redirect_to root_path, :notice => "No results. Try again."
+      redirect_to root_path, :notice => "No results. Try again." if @vimeo_results.empty?
     else
       @vimeo_results = Beemo::User.search(@search)
+      redirect_to root_path, :notice => "No results. Try again." if @vimeo_results.empty?
     end
   end
 

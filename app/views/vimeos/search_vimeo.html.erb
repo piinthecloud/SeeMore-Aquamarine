@@ -13,6 +13,9 @@
         <div class="col-xs-4">
           <li>Name: <%= vimeo.name %></li>
           <li>Username: <%= get_vimeo_handle(vimeo.url) %></li>
+          <% if vimeo.location %>
+            <li>Location: <%= vimeo.location %>
+          <% end %>
           <li><%= link_to "Profile on Vimeo", vimeo.url %></li>
         </div>
 
