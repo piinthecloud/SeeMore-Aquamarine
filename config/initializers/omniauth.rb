@@ -9,3 +9,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :instagram, ENV["INSTAGRAM_CLIENT_ID"], ENV["INSTAGRAM_SECRET"]
 
 end
+
+Beemo.configuration[:access_token] = ENV["VIMEO_ACCESS_TOKEN"]
