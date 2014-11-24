@@ -1,12 +1,14 @@
-class FeedsController < ApplicationController
+class VimeosController < ApplicationController
 
   def search_vimeo
     @feed = Feed.new
     @search = params[:search]
     if @search.empty?
       redirect_to root_path, :notice => "You didn't search for anything. Try again."
-    elsif URI::InvalidURIError
-      redirect_to root_path, :notice => "No results. Try again."
+    elsif @search.include?(" ")
+      @vimeo_results = Beemo::User.search(@search.gsub(" ", "%20"))
+    # elsif Beemo::User.search(@search) == URI::InvalidURIError
+      # redirect_to root_path, :notice => "No results. Try again."
     else
       @vimeo_results = Beemo::User.search(@search)
     end
