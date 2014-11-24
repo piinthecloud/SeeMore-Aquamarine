@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   get   "/feeds/twitter/:handle",       to: "subscriptions#subscribe"
 
   #VIMEO
-  get "/vimeos/search_vimeo",                  to: "vimeos#search_vimeo"
-  post "/vimeos/search_vimeo",                 to: "vimeos#search_vimeo"
-  post "/vimeos/",                              to: "vimeos#create_vimeo_feed", as: :create_vimeo_feed
+  get "/vimeos/search_vimeo",           to: "vimeos#search_vimeo"
+  post "/vimeos/search_vimeo",          to: "vimeos#search_vimeo"
+  post "/vimeos",                       to: "vimeos#create_vimeo_feed", as: :create_vimeo_feed
 
 
   # The priority is based upon order of creation: first created -> highest priority.
