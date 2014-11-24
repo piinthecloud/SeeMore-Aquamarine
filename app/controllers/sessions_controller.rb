@@ -7,7 +7,12 @@ class SessionsController < ApplicationController
        @user = find_or_create_from_omniauth
        session[:user_id] = @user.user_id
        redirect_to root_path
+
     end
+  end
+
+  def add_user_name
+    auth_hash["info"]["nickname"]
   end
 
 
@@ -25,7 +30,7 @@ class SessionsController < ApplicationController
     if session[:user_id]
       session[:user_id]
     else
-      @user = User.create()
+      @user = User.create(name: add_user_name)
       @user.id
     end
 

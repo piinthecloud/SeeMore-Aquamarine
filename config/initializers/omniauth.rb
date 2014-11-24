@@ -4,10 +4,6 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 
   provider :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET"]
 
-
-  # provider :developer unless Rails.new
-  # provider :github, ENV["GITHUB_CLIENT_ID"], ENV["GITHUB_CLIENT_SECRET"]
-
   provider :vimeo, ENV["VIMEO_CLIENT_ID"], ENV["VIMEO_SECRET"]
 
   provider :instagram, ENV["INSTAGRAM_CLIENT_ID"], ENV["INSTAGRAM_SECRET"]
