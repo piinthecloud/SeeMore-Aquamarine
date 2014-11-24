@@ -14,8 +14,6 @@ module FeedsHelper
     @med_portrait = obj["sizes"][2]["link"]
   end
 
-
-
   def get_vimeo_handle(url)
     new_url = url.scan(/\/\w+.$/).join("").delete("/")
   end
