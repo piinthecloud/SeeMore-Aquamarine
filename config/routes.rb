@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  get "auth/:provider/callback",       to: "sessions#create"
+  get "auth/:provider/callback",        to: "sessions#create"
 
-  delete "/", to: "sessions#destroy",                                 as: :logout
+  delete "/",                           to: "sessions#destroy",  as: :logout
 
   # TWITTER
   get   "/search/twitter",              to: "twitter#search"
@@ -13,9 +13,14 @@ Rails.application.routes.draw do
   get   "/feeds/twitter/:handle",       to: "subscriptions#subscribe"
 
   #VIMEO
-  get "/vimeos/search_vimeo",                  to: "vimeos#search_vimeo"
-  post "/vimeos/search_vimeo",                 to: "vimeos#search_vimeo"
-  post "/vimeos/",                              to: "vimeos#create_vimeo_feed", as: :create_vimeo_feed
+  get "/vimeos/search_vimeo",           to: "vimeos#search_vimeo"
+  post "/vimeos/search_vimeo",          to: "vimeos#search_vimeo"
+  post "/vimeos/",                      to: "vimeos#create_vimeo_feed", as: :create_vimeo_feed
+
+  #GITHUB
+  get "/github/search_github",                  to: "github#search_github"
+  post "/github/search_github",                 to: "github#search_github"
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
