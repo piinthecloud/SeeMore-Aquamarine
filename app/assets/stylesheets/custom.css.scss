@@ -5,9 +5,6 @@
 //   border: 1px solid pink;
 // }
 
-ul.vimeo-feed {
-  list-style-type: none;
-}
 
 .wrap-vimeo-results {
   width: 50%;
@@ -33,6 +30,14 @@ html{
 body {
   background-image: url(image_path("bg_stars.gif"));
   background-repeat: repeat;
+}
+
+.vimeo-feed {
+  list-style-type: none;
+}
+
+.col-xs-4 {
+  background-color: #ffffff;
 }
 
 .leftLogo {

@@ -6,8 +6,10 @@ class FeedsController < ApplicationController
     if @search.include?(" ") || @search.empty?
       redirect_to root_path, :notice => "Couldn't find anything. Try again."
     else
-      @vimeo_feeds = Vimeo::Simple::User.info(@search)
-      @vimeo_results = @vimeo_feeds.parsed_response
+      @vimeo_results = Beemo::User.search(@search)
+
+      # @vimeo_feeds = Vimeo::Simple::User.info(@search)
+      # @vimeo_results = @vimeo_feeds.parsed_response
     end
   end
 

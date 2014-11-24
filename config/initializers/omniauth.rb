@@ -4,10 +4,11 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 
   provider :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET"]
 
-
   # provider :developer unless Rails.new
   # provider :github, ENV["GITHUB_CLIENT_ID"], ENV["GITHUB_CLIENT_SECRET"]
 
   provider :vimeo, ENV["VIMEO_CLIENT_ID"], ENV["VIMEO_SECRET"]
 
 end
+
+Beemo.configuration[:access_token] = ENV["VIMEO_ACCESS_TOKEN"]

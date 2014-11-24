@@ -3,21 +3,17 @@
 <div class="wrap-vimeo-results">
   <ul class="vimeo-feed">
     <div class="col-xs-4">
-      <li><%= image_tag @vimeo_results["portrait_medium"] %></li>
-    </div>
 
-    <div class="col-xs-4">
-      <li><%= @vimeo_results["display_name"] %></li>
-      <li><%= @vimeo_results["location"] %></li>
-      <li><%= link_to "Profile", @vimeo_results["profile_url"] %></li>
+      <%= @vimeo_results.each do |vimeo| %>
+        <ul>
+          <li><%= image_tag get_profile_picture(vimeo.profile_pics) if vimeo.profile_pics %></li>
+
+          <li>Name: <%= vimeo.name %></li>
+          <li>Username: <%= get_vimeo_handle(vimeo.url) %></li>
+
+        </ul>
+      <% end %>
     </div>
   </ul>
-
-    <%= form_for @feed, url: create_vimeo_feed_path, method: :post, :class => "col-xs-4" do |f| %>
-      <%= f.hidden_field :handle, :value => get_vimeo_handle(@vimeo_results["profile_url"]) %>
-      <%= f.hidden_field :social_media, :value => "Vimeo" %>
-      <%= f.hidden_field :id, :value => @feed.id %>
-      <%= f.submit "Subscribe", :class => "btn btn-default" %>
-    <% end %>
 
 </div>
