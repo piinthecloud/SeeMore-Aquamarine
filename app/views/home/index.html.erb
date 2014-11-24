@@ -8,7 +8,7 @@
 
   <div class="searchbox">
     <p><em>VIMEO USER SEARCH</em></p>
-    <form id="search" action="/search_vimeo" method="POST">
+    <form id="search" action="/vimeos/search_vimeo" method="POST">
       <input type="text" name="search" placeholder="Search">
       <input type="submit" value="Go!">
     </form>
@@ -21,8 +21,9 @@
 
 </div>
   <div class="feed">
+
     <% if !@current_user.feeds.where(social_media: "Vimeo").empty? %>
-      <%= render "/home/vimeofeed" %>
+      <%= render "/vimeos/vimeofeed" %>
 
       <% else %>
           <p class="no-vimeos">Search for Vimeo users to grow your feed!</p>
