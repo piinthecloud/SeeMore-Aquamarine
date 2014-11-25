@@ -12,12 +12,12 @@
           <% end %>
         </div>
         <div class="col-xs-4">
-          <li>Name: <%= vimeo.name %></li>
-          <li>Username: <%= get_vimeo_handle(vimeo.url) %></li>
+          <li class="items">Name: <%= vimeo.name %></li>
+          <li class="items">Username: <%= get_vimeo_handle(vimeo.url) %></li>
           <% if vimeo.location %>
-            <li>Location: <%= vimeo.location %></li>
+            <li class="items">Location: <%= vimeo.location %></li>
           <% end %>
-          <li><%= link_to "Profile on Vimeo", vimeo.url, target: "_BLANK" %></li>
+          <li class="items"><%= link_to "Profile on Vimeo", vimeo.url, target: "_BLANK" %></li>
         </div>
         <% if current_user.feeds.where(handle: get_vimeo_handle(vimeo.url)).exists? %>
           <%= form_for @feed, url: delete_vimeo_feed_path(current_user.feeds.where(handle: get_vimeo_handle(vimeo.url)).pluck(:id)), method: :delete, :class => "col-xs-4 un-subscribe-button" do |f| %>
