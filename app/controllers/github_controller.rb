@@ -10,10 +10,13 @@ class GithubController < ApplicationController
     @git_results = Octokit.search_users("#{@search_text} in:login").to_hash[:items]
 
   end
-
-  # def results
-  #   search_github
-  #   @git_results
+  #
+  # def new_feed
+  #
+  #   @feed = Feed.new
+  #   Subscription.new(username: )
   # end
+
+
 
 end
