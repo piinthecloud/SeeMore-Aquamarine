@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get "/vimeos/search_vimeo",           to: "vimeos#search_vimeo"
   post "/vimeos/search_vimeo",          to: "vimeos#search_vimeo"
   post "/vimeos",                       to: "vimeos#create_vimeo_feed", as: :create_vimeo_feed
-
+  delete "/vimeos/:id",                 to: "vimeos#delete_vimeo_feed", as: :delete_vimeo_feed
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

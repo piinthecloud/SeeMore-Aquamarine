@@ -19,11 +19,15 @@
           <% end %>
           <li><%= link_to "Profile on Vimeo", vimeo.url, target: "_BLANK" %></li>
         </div>
-        <%= form_for @feed, url: create_vimeo_feed_path, method: :post, :class => "col-xs-4 subscribe-button" do |f| %>
-          <%= f.hidden_field :handle, :value => get_vimeo_handle(vimeo.url) %>
-          <%= f.hidden_field :social_media, :value => "Vimeo" %>
-          <%= f.hidden_field :id, :value => @feed.id %>
-          <%= f.submit "Subscribe", :class => "btn btn-default choose" %>
+        <% if current_user.feeds.where(handle: get_vimeo_handle(vimeo.url)).exists? %>
+            <%= button_to "Un-Subscribe", delete_vimeo_feed_path(current_user.feeds.where(handle: get_vimeo_handle(vimeo.url)).pluck(:id)), method: :delete, :class => "btn btn-default delete"  %>
+        <% else %>
+          <%= form_for @feed, url: create_vimeo_feed_path, method: :post, :class => "col-xs-4 subscribe-button" do |f| %>
+            <%= f.hidden_field :handle, :value => get_vimeo_handle(vimeo.url) %>
+            <%= f.hidden_field :social_media, :value => "Vimeo" %>
+            <%= f.hidden_field :id, :value => @feed.id %>
+            <%= f.submit "Subscribe", :class => "btn btn-default choose" %>
+          <% end %>
         <% end %>
         <br>
       </ul>
