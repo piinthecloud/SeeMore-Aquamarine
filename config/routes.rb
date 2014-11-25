@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   post "/vimeos/search_vimeo",                 to: "vimeos#search_vimeo"
   post "/vimeos/",                              to: "vimeos#create_vimeo_feed", as: :create_vimeo_feed
 
-
+  # INSTAGRAM
+  get "/search/instagram"                  ,to: "instagram#search"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
