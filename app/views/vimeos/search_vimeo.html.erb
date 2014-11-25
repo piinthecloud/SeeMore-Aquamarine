@@ -2,7 +2,8 @@
 
 <div class="wrap-vimeo-results">
     <% @vimeo_results.each do |vimeo| %>
-      <ul class="vimeo-result">
+    <div class="vimeo-result <%= 'chosen' if current_user.feeds.where(handle: get_vimeo_handle(vimeo.url)).exists? %>">
+      <ul>
         <div class = "col-xs-4">
           <% if vimeo.profile_pics %>
             <li><%= image_tag get_profile_picture(vimeo.profile_pics) %></li>
@@ -14,18 +15,29 @@
           <li>Name: <%= vimeo.name %></li>
           <li>Username: <%= get_vimeo_handle(vimeo.url) %></li>
           <% if vimeo.location %>
-            <li>Location: <%= vimeo.location %>
+            <li>Location: <%= vimeo.location %></li>
           <% end %>
           <li><%= link_to "Profile on Vimeo", vimeo.url, target: "_BLANK" %></li>
         </div>
+        <% if current_user.feeds.where(handle: get_vimeo_handle(vimeo.url)).exists? %>
+          <%= form_for @feed, url: delete_vimeo_feed_path(current_user.feeds.where(handle: get_vimeo_handle(vimeo.url)).pluck(:id)), method: :delete, :class => "col-xs-4 un-subscribe-button" do |f| %>
+            <%= f.hidden_field :handle, :value => get_vimeo_handle(vimeo.url) %>
+            <%= f.hidden_field :social_media, :value => "Vimeo" %>
+            <%= f.hidden_field :id, :value => @feed.id %>
+            <%= f.submit "Un-Subscribe", :class => "btn btn-default delete" %>
+          <% end %>
 
-        <%= form_for @feed, url: create_vimeo_feed_path, method: :post, :class => "col-xs-4 subscribe-button" do |f| %>
-          <%= f.hidden_field :handle, :value => get_vimeo_handle(vimeo.url) %>
-          <%= f.hidden_field :social_media, :value => "Vimeo" %>
-          <%= f.hidden_field :id, :value => @feed.id %>
-          <%= f.submit "Subscribe", :class => "btn btn-default choose" %>
-        <% end %><br>
+        <% else %>
+          <%= form_for @feed, url: create_vimeo_feed_path, method: :post, :class => "col-xs-4 subscribe-button" do |f| %>
+            <%= f.hidden_field :handle, :value => get_vimeo_handle(vimeo.url) %>
+            <%= f.hidden_field :social_media, :value => "Vimeo" %>
+            <%= f.hidden_field :id, :value => @feed.id %>
+            <%= f.submit "Subscribe", :class => "btn btn-default choose" %>
+          <% end %>
+        <% end %>
+        <br>
       </ul>
+    </div>
     <% end %>
 
 </div>
