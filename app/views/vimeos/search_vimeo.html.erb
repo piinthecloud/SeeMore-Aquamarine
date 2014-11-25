@@ -4,14 +4,14 @@
     <% @vimeo_results.each do |vimeo| %>
     <div class="vimeo-result <%= 'chosen' if current_user.feeds.where(handle: get_vimeo_handle(vimeo.url)).exists? %>">
       <ul>
-        <div class = "col-xs-4">
+        <div class = "vimeo-column col-xs-4">
           <% if vimeo.profile_pics %>
-            <li><%= image_tag get_profile_picture(vimeo.profile_pics) %></li>
+            <li><%= image_tag get_profile_picture(vimeo.profile_pics), class: "vimeo-profile-pic" %></li>
           <% else %>
-            <li><%= image_tag "https://i2.wp.com/i.vimeocdn.com/portrait/default-yellow_100x100.png?ssl=1" %></li>
+            <li><%= image_tag "no-profile.png", class: "vimeo-profile-pic" %></li>
           <% end %>
         </div>
-        <div class="col-xs-4">
+        <div class="vimeo-column col-xs-4">
           <li class="items">Name: <%= vimeo.name %></li>
           <li class="items">Username: <%= get_vimeo_handle(vimeo.url) %></li>
           <% if vimeo.location %>
@@ -24,7 +24,7 @@
             <%= f.hidden_field :handle, :value => get_vimeo_handle(vimeo.url) %>
             <%= f.hidden_field :social_media, :value => "Vimeo" %>
             <%= f.hidden_field :id, :value => @feed.id %>
-            <%= f.submit "Un-Subscribe", :class => "btn btn-default delete" %>
+            <%= f.submit "Un-Subscribe", :class => "vimeo-column btn btn-default delete" %>
           <% end %>
 
         <% else %>
@@ -32,7 +32,7 @@
             <%= f.hidden_field :handle, :value => get_vimeo_handle(vimeo.url) %>
             <%= f.hidden_field :social_media, :value => "Vimeo" %>
             <%= f.hidden_field :id, :value => @feed.id %>
-            <%= f.submit "Subscribe", :class => "btn btn-default choose" %>
+            <%= f.submit "Subscribe", :class => "vimeo-column btn btn-default choose" %>
           <% end %>
         <% end %>
         <br>

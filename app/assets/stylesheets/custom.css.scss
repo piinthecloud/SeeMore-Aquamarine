@@ -96,7 +96,7 @@ ul {
   float: left;
 }
 
-.home img{
+.home img {
   margin-top:0px;
   float: left;
 }
@@ -106,17 +106,20 @@ h2 {
 }
 
 .wrap-vimeo-results {
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
 }
 
 .vimeo-result {
   background-image: url(image_path("greenstar.gif")) ;
-  width: 50em;
-  height: 112px;
-  padding-top: .1em;
-  padding-bottom: .1em;
+  width: 50%;
+  height: 10em;
   margin: 1.5em;
+  margin-left: 10%;
+}
+
+.vimeo-result input[type="submit"] {
+  margin-top: 2em;
 }
 
 .items {
@@ -125,15 +128,10 @@ h2 {
   font-weight: bold;
 }
 
-// .vimeo-result a {
-//   color: #000000;
-//   background-color: #ffffff;
-//   font-weight: bold;
-// }
-
-.choose .delete button {
+.choose .delete {
   padding-top: 1em;
 }
+
 .notice {
   font-size: 1.2em;
   color: #f15a35;
@@ -141,6 +139,8 @@ h2 {
 
 .feed {
   color: #ffffff;
+  margin-top: 2em;
+  margin-left: 5em;
 }
 
 .no-vimeos {
@@ -148,5 +148,15 @@ h2 {
 }
 
 .chosen {
-  background-image: url(image_path("noodle2.gif")) ;
+  background-image: url(image_path("noodle2.gif"));
+  background-size: 20em;
+}
+
+.vimeo-column {
+  margin-top: 1em;
+  width: 30%;
+}
+
+.vimeo-profile-pic {
+  width: 75%;
 }
