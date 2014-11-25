@@ -1,0 +1,10 @@
+<h2>Search Results</h2>
+
+<% @api.each do |a|%>
+<div class= "git_result">
+  <%= image_tag "#{a["profile_picture"]}" %>
+  <%= a["username"] %>
+  <button type="button" class="btn btn-info">Subscribe</button>
+</div>
+
+<% end %>
