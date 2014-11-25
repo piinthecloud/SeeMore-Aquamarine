@@ -5,41 +5,6 @@
 //   border: 1px solid pink;
 // }
 
-h2 {
-  color: #ffffff;
-}
-
-.wrap-vimeo-results {
-  width: 70%;
-}
-
-.vimeo-result {
-  background-color: #ffffff;
-  width: 100%;
-  height: 140px;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  margin: 10em;
-}
-
-
-.notice {
-  font-size: 1.2em;
-  color: #f15a35;
-}
-
-.feed {
-  color: #ffffff;
-}
-
-.no-vimeos {
-  color: #ffffff;
-}
-
-.chosen {
-  background-color: #8fe7ac;
-}
-
 html{
   margin: 15px;
 }
@@ -53,15 +18,10 @@ ul {
   list-style-type: none;
 }
 
-.col-xs-4 {
-  background-color: #ffffff;
-}
-
 .leftLogo {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-
   float: left
 }
 
@@ -69,7 +29,6 @@ ul {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-
   float: right
 }
 
@@ -83,11 +42,9 @@ ul {
   min-height: 95px;
   text-align: center;
   font-weight: bold;
-
-
 }
 
-.searchbox{
+.searchbox {
   display: inline-block;
   text-align: center;
 }
@@ -102,11 +59,94 @@ ul {
 }
 
 .media img{
-
   height: 50px;
   padding: 4px;
 }
 
-.media:hover img{
+.media:hover img {
+}
 
+.git_result{
+  height: 110px;
+  background-image: url(image_path("greenstar.gif")) ;
+  width: 300px;
+  margin: 5px;
+  font-size: 25px;
+  font-family: "courier new";
+  font-weight: bold;
+}
+
+.git_result img {
+  float: left;
+  padding: 5px;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+}
+
+.btn-info {
+  float: right;
+  margin-right: 10px;
+}
+
+.home {
+  margin: 10px;
+  height: 120px;
+  width: 200px;
+  float: left;
+}
+
+.home img{
+  margin-top:0px;
+  float: left;
+}
+
+h2 {
+  color: #ffffff;
+}
+
+.wrap-vimeo-results {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.vimeo-result {
+  background-image: url(image_path("greenstar.gif")) ;
+  width: 50em;
+  height: 112px;
+  padding-top: .1em;
+  padding-bottom: .1em;
+  margin: 1.5em;
+}
+
+.items {
+  color: #000000;
+  background-color: #ffffff;
+  font-weight: bold;
+}
+
+// .vimeo-result a {
+//   color: #000000;
+//   background-color: #ffffff;
+//   font-weight: bold;
+// }
+
+.choose .delete button {
+  padding-top: 1em;
+}
+.notice {
+  font-size: 1.2em;
+  color: #f15a35;
+}
+
+.feed {
+  color: #ffffff;
+}
+
+.no-vimeos {
+  color: #ffffff;
+}
+
+.chosen {
+  background-image: url(image_path("noodle2.gif")) ;
 }
