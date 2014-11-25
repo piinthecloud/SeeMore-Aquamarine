@@ -110,3 +110,39 @@ ul {
 .media:hover img{
 
 }
+
+.git_result{
+  height: 110px;
+  background-image: url(image_path("greenstar.gif")) ;
+  width: 300px;
+  margin: 5px;
+  font-size: 25px;
+  font-family: "courier new";
+  font-weight: bold;
+}
+
+.git_result img {
+  float: left;
+  padding: 5px;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+}
+
+.btn-info {
+  float: right;
+  margin-right: 10px;
+}
+
+.home {
+
+  margin: 10px;
+  height: 120px;
+  width: 200px;
+  float: left;
+}
+
+.home img{
+  margin-top:0px;
+  float: left;
+}

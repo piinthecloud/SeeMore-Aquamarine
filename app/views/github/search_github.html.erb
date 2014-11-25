@@ -4,6 +4,15 @@
 
 <% @git_results .each do |git| %>
 
-<p><%= image_tag "#{git[:avatar_url]}", size:"100x100" %></p>
+<div class= "git_result">
+  <%= image_tag "#{git[:avatar_url]}", size:"100x100" %>
+  <p><%= git[:login] %></p>
+  <button type="button" class="btn btn-info">Subscribe</button>
+
+
+
+
+
+</div>
 
 <% end %>
