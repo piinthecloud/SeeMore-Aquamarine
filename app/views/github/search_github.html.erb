@@ -7,8 +7,14 @@
 <div class= "git_result">
   <%= image_tag "#{git[:avatar_url]}", size:"100x100" %>
   <p><%= git[:login] %></p>
-  <button type="button" class="btn btn-info">Subscribe</button>
+  <!-- <button type="button" class="btn btn-info">Subscribe</button> -->
 
+  <%= form_for @feed, url: create_github_feed_path, method: :post, :class => "col-xs-4 subscribe-button" do |f| %>
+  <%= f.hidden_field :handle, :value => "#{git[:login]}"%>
+  <%= f.hidden_field :social_media, :value => "github" %>
+  <%= f.hidden_field :id, :value => @feed.id %>
+  <%= f.submit "Subscribe", :class => "btn btn-info" %>
+  <% end %>
 
 
 

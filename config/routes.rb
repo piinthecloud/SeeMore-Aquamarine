@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   #GITHUB
   get "/github/search_github",                  to: "github#search_github"
   post "/github/search_github",                 to: "github#search_github"
+  post "/github/",                              to: "github#create_github_feed", as: :create_github_feed
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
