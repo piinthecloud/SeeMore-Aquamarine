@@ -46,6 +46,10 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
+  def my_account
+    # @current_user = User.find(id: session[:user_id])
+    # @feeds = @current_user.feeds
+  end
 
 private
 

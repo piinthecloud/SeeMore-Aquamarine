@@ -53,7 +53,7 @@ ul {
 .login {
   background-image: url(image_path("greenstar.gif")) ;
   background-repeat: repeat;
-  margin-bottom:0;
+  margin-bottom: 0 auto;
   text-align: center;
   height: 140px;
 }
@@ -120,6 +120,8 @@ h2 {
 
 .vimeo-result input[type="submit"] {
   margin-top: 2em;
+  width: 25%;
+  margin-right: .1em;
 }
 
 .items {
@@ -154,9 +156,20 @@ h2 {
 
 .vimeo-column {
   margin-top: 1em;
+  margin-right: 0;
   width: 30%;
+}
+
+.col-xs-4 {
+  margin: 0 auto;
+}
+
+.middle {
+  margin-top: 1em;
+  width: 40%;
 }
 
 .vimeo-profile-pic {
   width: 75%;
+  margin-top: 1em;
 }
