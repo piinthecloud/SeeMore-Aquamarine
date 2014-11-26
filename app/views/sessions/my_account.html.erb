@@ -1,1 +1,13 @@
 <h2>My Account</h2>
+
+<div class="wrap-vimeo-results">
+  <% @user_vimeos.each do |vimeo| %>
+    <div class="vimeo-result">
+      <ul>
+        <div class = "vimeo-column col-xs-4">
+            <li><%= image_tag Vimeo::Simple::User.info(vimeo.handle)["portrait_medium"], class: "vimeo-profile-pic" %></li>
+        </div>
+      </ul>
+    </div>
+  <% end %>
+</div>
