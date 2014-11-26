@@ -118,7 +118,7 @@ h3 {
   background-image: url(image_path("greenstar.gif")) ;
   width: 50%;
   height: 10em;
-  margin: 1.5em;
+  margin: 0em;
 }
 
 .vimeo-result input[type="submit"] {
@@ -159,7 +159,6 @@ h3 {
 
 .vimeo-column {
   margin-top: 1em;
-  margin-right: 0;
   width: 30%;
 }
 
@@ -178,21 +177,13 @@ h3 {
 }
 
 .my-account {
-  font-size: 1.2em;
-  font-family: "Comic Sans MS";
-  margin-top: 1em;
-  margin-left: 2em;
+  margin-left: 10em;
+  margin-top: 2em;
   float: left;
-  background-color: #f3f3f3;
-	border-radius: 50%;
-	width: 5.5em;
-	height: 5.5em;
+
 }
 
-.my-account a {
-  color: #0ba6ff;
-}
 
-.comic {
-  margin-top: 1em;
+#hideous-my-account {
+  width: 10em;
 }
