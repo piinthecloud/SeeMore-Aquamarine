@@ -18,5 +18,8 @@ module VimeosHelper
     new_url = url.scan(/\/\w+.$/).join("").delete("/")
   end
 
-
+  def get_vimeo_feed(handle)
+    Vimeo::Simple::User.info(handle)
+  end
+  
 end
