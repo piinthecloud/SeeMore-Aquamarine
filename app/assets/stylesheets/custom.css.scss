@@ -105,6 +105,10 @@ h2 {
   color: #ffffff;
 }
 
+h3 {
+  color: #d4d4d4;
+}
+
 .wrap-vimeo-results {
   width: 100%;
   margin: 0 auto;
@@ -115,7 +119,6 @@ h2 {
   width: 50%;
   height: 10em;
   margin: 1.5em;
-  margin-left: 10%;
 }
 
 .vimeo-result input[type="submit"] {
@@ -170,6 +173,28 @@ h2 {
 }
 
 .vimeo-profile-pic {
-  width: 75%;
+  width: 8em;
   margin-top: 1em;
+}
+
+.my-account {
+  font-size: 1.2em;
+  font-family: "Comic Sans MS";
+  margin-top: 1em;
+  margin-left: 2em;
+  float: left;
+  background-color: #f3f3f3;
+	border-radius: 50%;
+	width: 5.5em;
+	height: 5.5em;
+	/* width and height can be anything, as long as they're equal */
+
+}
+
+.my-account a {
+  color: #0ba6ff;
+}
+
+.comic {
+  margin-top: .75em;
 }
