@@ -12,5 +12,15 @@ class InstagramController < ApplicationController
 
   end
 
+  def create
+  # create a new feed
+
+  feed = HTTParty.get("https://api.instagram.com/v1/users/#{params["id"]}/media/recent")
+  raise feed.inspect
+  end
+
 
 end
+
+
+#https://api.instagram.com/v1/users/708052543/media/recent

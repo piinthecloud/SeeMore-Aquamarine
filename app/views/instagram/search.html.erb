@@ -4,7 +4,9 @@
 <div class= "git_result">
   <%= image_tag "#{a["profile_picture"]}" %>
   <%= a["username"] %>
-  <button type="button" class="btn btn-info">Subscribe</button>
+  <%= button_to "Subscribe" , "/instagram/new", class="btn btn-info" %>
+  <%# api.id %>
+  <% hidden_field_tag "id", a["id"]  class: "info"  %>
 </div>
 
 <% end %>
