@@ -6,17 +6,27 @@ class GithubController < ApplicationController
   # end
 
   def search_github
+    @feed = Feed.new
     @search_text = params[:search]
     @git_results = Octokit.search_users("#{@search_text} in:login").to_hash[:items]
+    raise
 
   end
-  #
-  # def new_feed
-  #
-  #   @feed = Feed.new
-  #   Subscription.new(username: )
-  # end
 
+
+
+  def create_github_feed
+    @feed = Feed.new(feed_params)
+    if @feed.save
+      @subscription ? @subscription : @subscription = Subscription.create(:user_id => session[:user_id], :feed_id => @feed.id)
+      redirect_to root_path
+    end
+  end
+
+private
+  def feed_params
+    params.require(:feed).permit(:handle, :social_media)
+  end
 
 
 end

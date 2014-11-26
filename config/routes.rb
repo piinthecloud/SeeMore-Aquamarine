@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get   "/feeds/twitter/:handle",       to: "subscriptions#subscribe"
 
   #VIMEO
+
   get "/vimeos/search_vimeo",           to: "vimeos#search_vimeo"
   post "/vimeos/search_vimeo",          to: "vimeos#search_vimeo"
   post "/vimeos/",                      to: "vimeos#create_vimeo_feed", as: :create_vimeo_feed
@@ -24,6 +25,13 @@ Rails.application.routes.draw do
   #GITHUB
   get "/github/search_github",                  to: "github#search_github"
   post "/github/search_github",                 to: "github#search_github"
+  post "/github/",                              to: "github#create_github_feed", as: :create_github_feed
+
+
+
+  # INSTAGRAM
+  get "/instagram/search"                  ,to: "instagram#search"
+  post"/instagram/search"                  ,to: "instagram#search"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
