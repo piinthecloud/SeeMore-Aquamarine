@@ -54,9 +54,9 @@
 
 
 
-    <p>Start getting snappy, <%= User.find(session[:user_id]).name %></p>
+    <p class="comic">Start getting snappy, <%= User.find(session[:user_id]).name %></p>
 
-    <p><%= link_to "Log out", logout_path, method: :delete %></p>
+    <%= link_to "Log out", logout_path, method: :delete, class: "comic" %></p>
 
   </div>
 </div>
