@@ -116,9 +116,9 @@ h3 {
 
 .vimeo-result {
   background-image: url(image_path("greenstar.gif")) ;
-  width: 50%;
-  height: 10em;
-  margin: 0em;
+  width: 40em;
+  height: 12em;
+  margin: 5em;
 }
 
 .vimeo-result input[type="submit"] {
@@ -130,7 +130,7 @@ h3 {
 .items {
   color: #000000;
   background-color: #ffffff;
-  font-weight: bold;
+  padding: .2em;
 }
 
 .choose .delete {
@@ -154,12 +154,11 @@ h3 {
 
 .chosen {
   background-image: url(image_path("noodle2.gif"));
-  background-size: 20em;
+  background-size: 25em;
 }
 
 .vimeo-column {
   margin-top: 1em;
-  width: 30%;
 }
 
 .col-xs-4 {
@@ -168,7 +167,7 @@ h3 {
 
 .middle {
   margin-top: 1em;
-  width: 40%;
+  width: 15em;
 }
 
 .vimeo-profile-pic {

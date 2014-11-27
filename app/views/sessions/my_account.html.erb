@@ -3,7 +3,7 @@
 <div class="wrap-vimeo-results">
   <h3>Your Vimeo Subscriptions</h3>
   <% @user_vimeos.each do |vimeo| %>
-    <div class="vimeo-result">
+    <div class="vimeo-result chosen">
       <ul>
         <div class = "vimeo-column col-xs-4">
           <li><%= image_tag get_vimeo_feed(vimeo.handle)["portrait_medium"], class: "vimeo-profile-pic" %></li>
