@@ -22,6 +22,11 @@ class GithubController < ApplicationController
     end
   end
 
+  def delete_feed
+
+
+  end
+
 private
   def feed_params
     params.require(:feed).permit(:handle, :social_media)
