@@ -10,6 +10,7 @@ class GithubController < ApplicationController
     @search_text = params[:search]
     @git_results = Octokit.search_users("#{@search_text} in:login").to_hash[:items]
 
+
   end
 
 
