@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   delete "/",                           to: "sessions#destroy",  as: :logout
 
+  #MY ACCOUNT
+  get   "/my_account",                  to: "sessions#my_account",    as: :my_account
+
   # TWITTER
   get   "/search/twitter",              to: "twitter#search"
   post  "/feeds/twitter/:screen_name",  to: "subscriptions#subscribe", as: :feed
