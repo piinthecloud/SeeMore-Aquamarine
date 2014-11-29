@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get "/github/search_github",           to: "github#search_github"
   post "/github/search_github",          to: "github#search_github"
   post "/github/",                       to: "github#create_github_feed", as: :create_github_feed
-  delete "github/:id",                   to: "github#delete_feed"
+  delete "github/:id",                   to: "github#delete_github_feed", as: :delete_github_feed
 
 
 
