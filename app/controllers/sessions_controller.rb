@@ -48,7 +48,7 @@ class SessionsController < ApplicationController
 
   def my_account
     @current_user = User.find_by(id: session[:user_id])
-    @user_vimeos = @current_user.feeds
+    @user_vimeos = @current_user.feeds 
   end
 
 private

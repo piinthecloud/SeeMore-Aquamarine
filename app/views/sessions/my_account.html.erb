@@ -1,28 +1,27 @@
 <h2>Account Details</h2>
 
-<div class="wrap-vimeo-results">
-  <h3>Your Vimeo Subscriptions</h3>
-  <% @user_vimeos.each do |vimeo| %>
-    <div class="vimeo-result chosen">
-      <ul>
-        <div class = "vimeo-column col-xs-4">
-          <li><%= image_tag get_vimeo_feed(vimeo.handle)["portrait_medium"], class: "vimeo-profile-pic" %></li>
+<% if !@user_vimeos.empty? %>
+  <div class="wrap-vimeo-results">
+    <h3>Your Vimeo Subscriptions</h3>
+      <% @user_vimeos.each do |vimeo| %>
+        <div class="vimeo-result chosen">
+          <ul>
+            <div class = "vimeo-column col-xs-4">
+              <li><%= image_tag get_vimeo_feed(vimeo.handle)["portrait_medium"], class: "vimeo-profile-pic" %></li>
+            </div>
+
+            <div class="vimeo-column middle col-xs-4">
+              <li class="items">Name: <%= get_vimeo_feed(vimeo.handle)["display_name"] %></li>
+              <li class="items">Username: <%= vimeo.handle %></li>
+              <% if get_vimeo_feed(vimeo.handle)["location"] != "" %>
+                <li class="items">Location: <%= get_vimeo_feed(vimeo.handle)["location"] %></li>
+                <% end %>
+                <li class="items"><%= link_to "Profile on Vimeo", get_vimeo_feed(vimeo.handle)["profile_url"], target: "_BLANK" %></li>
+              </div>
+
+            <li><%= link_to "Un-subscribe", delete_vimeo_feed_path(vimeo.id), method: :delete, class: "btn btn-default vimeo-column delete" %></li>
+          </ul>
         </div>
-
-
-        <div class="vimeo-column middle col-xs-4">
-          <li class="items">Name: <%= get_vimeo_feed(vimeo.handle)["display_name"] %></li>
-          <li class="items">Username: <%= vimeo.handle %></li>
-          <% if get_vimeo_feed(vimeo.handle)["location"] != "" %>
-            <li class="items">Location: <%= get_vimeo_feed(vimeo.handle)["location"] %></li>
-          <% end %>
-          <li class="items"><%= link_to "Profile on Vimeo", get_vimeo_feed(vimeo.handle)["profile_url"], target: "_BLANK" %></li>
-        </div>
-
-        <li><%= link_to "Un-subscribe", delete_vimeo_feed_path(vimeo.id), method: :delete, class: "btn btn-default vimeo-column delete" %></li>
-
-
-      </ul>
-    </div>
+      </div>
   <% end %>
-</div>
+<% end %>
