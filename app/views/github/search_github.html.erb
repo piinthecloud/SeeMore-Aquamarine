@@ -2,20 +2,30 @@
 
 
 
-<% @git_results .each do |git| %>
+<% @git_results.each do |git| %>
 
 <div class= "git_result">
   <%= image_tag "#{git[:avatar_url]}", size:"100x100" %>
   <p><%= git[:login] %></p>
   <!-- <button type="button" class="btn btn-info">Subscribe</button> -->
-  <% @idf = Feed.find_by(handle: "#{git[:login]}").id %>
 
-  <% if "#{git[:login]}" == Subscription.find_by(:feed_id => @idf)%>
-      "this exists"
+  <% if @idf = Feed.exists?(handle: "#{git[:login]}")%>
+    <% @idf = Feed.find_by(handle: "#{git[:login]}").id %>
+  <% end  %>
+  <!--
+  Subscription.includes(:feed).references(:feed).find_by(feeds: {handle: "#{git[:login]}"}) -->
+
+  <% if Subscription.exists?(:feed_id => @idf, :user_id => session[:user_id])%>
+      <% @sub = Subscription.find_by(:feed_id => @idf, :user_id => session[:user_id]) %>
+      <%= form_for @sub, url: delete_github_sub_path, method: :delete, :class => "col-xs-4 subscribe-button" do |f| %>
+      <%= f.hidden_field :id, :value => @sub.id %>
+      <%= f.submit "Unsubscribe", :class => "btn btn-danger" %>
+      <% end %>
 
   <% else %>
     <%= form_for @feed, url: create_github_feed_path, method: :post, :class => "col-xs-4 subscribe-button" do |f| %>
     <%= f.hidden_field :handle, :value => "#{git[:login]}"%>
+    <%= f.hidden_field :uid, :value => "#{git[:id]}"%>
     <%= f.hidden_field :social_media, :value => "github" %>
     <%= f.hidden_field :id, :value => @feed.id %>
     <%= f.submit "Subscribe", :class => "btn btn-info" %>

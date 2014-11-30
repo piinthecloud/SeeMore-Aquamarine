@@ -22,9 +22,9 @@ class GithubController < ApplicationController
     end
   end
 
-  def delete_github_feed
-    @feed = Feed.find(params[:id])
-    if @feed.destroy
+  def delete_github_sub
+    @sub = params[:subscription][:id]
+    if Subscription.find(@sub).destroy
       redirect_to root_path, :notice => "Subscription deleted!"
     else
       redirect_to root_path, :notice => "Something went wrong"
@@ -32,9 +32,11 @@ class GithubController < ApplicationController
   end
 
 
+
+
 private
   def feed_params
-    params.require(:feed).permit(:handle, :social_media)
+    params.require(:feed).permit(:handle, :social_media, :uid)
   end
 
 
