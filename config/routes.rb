@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   # INSTAGRAM
   get "/instagram/search"                  ,to: "instagram#search"
   post"/instagram/search"                  ,to: "instagram#search"
+  post "/instagram/new"                     ,to: "instagram#create"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
