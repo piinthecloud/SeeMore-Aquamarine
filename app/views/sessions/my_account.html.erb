@@ -15,7 +15,7 @@
               <li class="items">Username: <%= vimeo.handle %></li>
               <% if get_vimeo_feed(vimeo.handle)["location"] != "" %>
                 <li class="items">Location: <%= get_vimeo_feed(vimeo.handle)["location"] %></li>
-                <% end %>
+              <% end %>
                 <li class="items"><%= link_to "Profile on Vimeo", get_vimeo_feed(vimeo.handle)["profile_url"], target: "_BLANK" %></li>
               </div>
 

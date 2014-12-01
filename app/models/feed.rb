@@ -5,10 +5,11 @@ class Feed < ActiveRecord::Base
 
   def self.feed_and_posts(params)
     feed = Feed.new(params)
-    if !Post.all.find_by(feed_id: params[:id]).exists?
-      @all_posts = Vimeo::Simple::User.all_videos("skwak").parsed_response
-      @posts = @all_posts.collect { |post| Post.create(feed_id: params[:id], content: post["url"], date: post["upload_date"]) }
-    end
+    # if !Post.all.find_by(feed_id: params[:id]).exists?
+      @all_posts = Vimeo::Simple::User.all_videos(params[:handle]).parsed_response
+      @posts = @all_posts.collect { |post| Post.create(feed_id: params[:id], content: post["url"], datetime: DateTime.parse(post["upload_date"])) }
+    # end
+    feed
   end
 
 # from vimeos helper
