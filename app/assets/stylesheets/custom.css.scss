@@ -84,6 +84,24 @@ ul {
   -moz-border-radius: 100px;
 }
 
+.git_feed_result{
+  height: 210px;
+  background-image: url(image_path("greenstar.gif")) ;
+  width: 500px;
+  margin: 5px;
+  font-size: 25px;
+  font-family: "courier new";
+  font-weight: bold;
+}
+
+.git_feed_result img {
+  float: left;
+  padding: 5px;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+}
+
 .btn-info {
   float: right;
   margin-right: 10px;

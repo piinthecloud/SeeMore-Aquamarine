@@ -1,16 +1,15 @@
 
-<% @git_feeds.flatten.each do |feed| %>
+<% @git_feeds.flatten.each do |event| %>
 
+  <% raise %>
 
-
-  feed.each do |event|
-  <div class= "git_result">
+  <div class= "git_feed_result">
   <%= image_tag "#{event[:actor][:avatar_url]}", size:"100x100" %>
   <p><%= event[:actor][:login] %></p>
+  <p><%= event[:type] %></p>
+  <p><a href= <%= event[:repo][:url]%>><%= event[:repo][:name]%></a></p>
 
 </div>
-
-  end
 
 
 <% end %>
