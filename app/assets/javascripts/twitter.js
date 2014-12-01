@@ -4,7 +4,7 @@ $(function(){
 
     var button = $(this);
     if (button == "Subscribe") {
-      (button.val() = "Subscribed");
+      (button = "Subscribed");
     }
 
     console.log(button.val());
