@@ -1,17 +1,11 @@
 <% all_vimeos %>
-<% parse_vimeo %>
-<% @all_vimeos.each do |vimeo_account| %>
-  <% vimeo_account.posts.each do |video| %>
-    <ul class="vimeo-feed">
-      <li><%= vimeo_account.handle %> posted on <%= video.datetime %></li>
-    </ul>
-  <% end %>
-<% end %>
-<% raise %>
-<% @vimeos.each do |video| %>
+<% get_videos_all_together(@all_vimeos) %>
+
+<% @all_vids.each do |video| %>
   <ul class="vimeo-feed">
-    <li><%= video["user_name"] %> posted on <%= (video["upload_date"]) %></li>
-    <li><iframe src="//player.vimeo.com/video/<%= video["id"] %>" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></li>
-    <li>Watch on <%= link_to "Vimeo", video["url"], target: "_BLANK" %></li>
+    <% @vimeo_feed = Feed.find_by(id: video.feed_id) %>
+    <li> <%= @vimeo_feed.handle %> posted on <%= video.datetime %></li>
+    <li><iframe src="//player.vimeo.com/video/<%= get_id_number(video.content) %>" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></li>
+    <li>Watch on <%= link_to "Vimeo", video.content, target: "_BLANK" %></li>
   </ul>
 <% end %>
