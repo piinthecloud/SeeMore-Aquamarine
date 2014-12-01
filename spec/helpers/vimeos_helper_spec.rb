@@ -10,6 +10,26 @@ describe VimeosHelper do
        expect(@feed.handle).to eq "ericwareheim"
      end
    end
+
+   describe "#get_videos_all_together(all_vimeo_accounts)" do
+     it "sorts the vimeo feeds" do
+       @current_user = User.create(id: 1)
+       Feed.create(id: 1, social_media: "Vimeo", handle: "ericwareheim")
+       Feed.create(id: 2, social_media: "Vimeo", handle: "user3644277")
+       Subscription.create(user_id: 1, feed_id: 1)
+       Subscription.create(user_id:1, feed_id: 2)
+       Post.create(content: "https://vimeo.com/91796825", feed_id: 1, datetime: "2014-04-12 12:22:48")
+       Post.create(content: "https://vimeo.com/11122534", feed_id: 2, datetime: "2010-04-21 19:25:59")
+       @feeds = @current_user.feeds.where(social_media: "Vimeo")
+       @all_vids = []
+       @feeds.each do |account|
+         @all_vids << account.posts
+      end
+      @all_vids.flatten!
+      @all_vids = @all_vids.sort_by { |vid| vid.datetime }.reverse
+      expect(@all_vids.count).to eq 2
+     end
+   end
 end
 # module VimeosHelper
 #
