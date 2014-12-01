@@ -9,7 +9,6 @@ class GithubController < ApplicationController
     @feed = Feed.new
     @search_text = params[:search]
     @git_results = Octokit.search_users("#{@search_text} in:login").to_hash[:items]
-    raise
 
   end
 
@@ -23,9 +22,21 @@ class GithubController < ApplicationController
     end
   end
 
+  def delete_github_sub
+    @sub = params[:subscription][:id]
+    if Subscription.find(@sub).destroy
+      redirect_to root_path, :notice => "Subscription deleted!"
+    else
+      redirect_to root_path, :notice => "Something went wrong"
+    end
+  end
+
+
+
+
 private
   def feed_params
-    params.require(:feed).permit(:handle, :social_media)
+    params.require(:feed).permit(:handle, :social_media, :uid)
   end
 
 
