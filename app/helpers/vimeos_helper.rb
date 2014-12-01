@@ -16,7 +16,7 @@ module VimeosHelper
     @all_vids.flatten!
     @all_vids = @all_vids.sort_by { |vid| vid.datetime }.reverse
   end
-  
+
  # don't need this anymore
   # def parse_vimeo
   #   @get_vimeo = @all_vimeos.collect { |feed| Vimeo::Simple::User.all_videos(feed.handle).parsed_response }
@@ -29,7 +29,7 @@ module VimeosHelper
   end
 
   def get_vimeo_handle(url)
-    new_url = url.scan(/\/\w+.$/).join("").delete("/")
+    url.scan(/\/\w+.$/).join("").delete("/")
   end
 
   def get_vimeo_feed(handle)
