@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   #GITHUB
   get "/github/search_github",           to: "github#search_github"
-  get "/github/github_feeds"
+  get "/github/github_feeds",             to: "github#feed_results"
   post "/github/search_github",          to: "github#search_github"
   post "/github/",                       to: "github#create_github_feed", as: :create_github_feed
   delete "github/",                   to: "github#delete_github_sub", as: :delete_github_sub
@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   # INSTAGRAM
   get "/instagram/search"                  ,to: "instagram#search"
   post"/instagram/search"                  ,to: "instagram#search"
+  post "/instagram/new"                     ,to: "instagram#create"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

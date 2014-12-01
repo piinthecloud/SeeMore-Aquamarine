@@ -1,5 +1,5 @@
 class GithubController < ApplicationController
-
+  #
   # def initialize
   #   @client = Octokit::Client.new(:access_token => auth_hash["credentials"]["token"])
   #
@@ -30,6 +30,20 @@ class GithubController < ApplicationController
       redirect_to root_path, :notice => "Something went wrong"
     end
   end
+
+  def feed_results
+    @git_feeds = []
+    all_git_feeds.each do |feed|
+      @git_feeds << Octokit.user_events(feed.uid)
+
+    end
+
+
+
+
+  end
+
+
 
 
 
