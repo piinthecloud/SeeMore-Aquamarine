@@ -15,13 +15,15 @@ class InstagramController < ApplicationController
   def create
   # create a new feed
   feed = HTTParty.get("https://api.instagram.com/v1/users/#{params[:id]}/media/recent?access_token=#{ENV["INSTAGRAM_ACCESS_TOKEN"]}")
-  create_instagram_feed
+  create_instagram_feed_and_subscription
   #raise feed.inspect
   redirect_to root_path
   end
 
-  def create_instagram_feed
-    @feed = Feed.create(params.require(:feed).permit(:handle, :social_media, :uid))
+  def create_instagram_feed_and_subscription
+    if @feed = Feed.create(params.require(:feed).permit(:handle, :social_media, :uid))
+      Subscription.create(:user_id => session[:user_id] , :feed_id => @feed.id)
+    end
 
     # if this feed saves also create a subscription this the feed Subscription.create()
 
