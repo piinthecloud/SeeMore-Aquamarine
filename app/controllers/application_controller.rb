@@ -4,4 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   skip_before_action :verify_authenticity_token
 
+  def all_git_feeds
+    @all_git_feeds = User.find(session[:user_id]).feeds.where(social_media: "github")
+
+  end
+
+  helper_method :all_git_feeds
+
 end
