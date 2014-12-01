@@ -15,7 +15,7 @@ class VimeosController < ApplicationController
   end
 
   def create_vimeo_feed
-    @feed = Feed.new(feed_params)
+    @feed = Feed.feed_and_posts(feed_params)
     if @feed.save
       @subscription ? @subscription : @subscription = Subscription.create(:user_id => session[:user_id], :feed_id => @feed.id)
       redirect_to root_path
