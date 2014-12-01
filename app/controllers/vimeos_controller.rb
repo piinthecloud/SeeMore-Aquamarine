@@ -25,12 +25,18 @@ class VimeosController < ApplicationController
   end
 
   def delete_vimeo_feed
-    @feed = Feed.find(params[:id])
-    if @feed.destroy
+    @subscription = Subscription.find_by(feed_id: params[:id], user_id: session[:user_id])
+    if @subscription.destroy
       redirect_to root_path, :notice => "Subscription deleted."
     else
       redirect_to root_path, :notice => "Something went wrong."
     end
+    # @feed = Feed.find(params[:id])
+    # if @feed.destroy
+    #   redirect_to root_path, :notice => "Subscription deleted."
+    # else
+    #   redirect_to root_path, :notice => "Something went wrong."
+    # end
   end
 
   private
