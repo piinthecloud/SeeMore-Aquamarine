@@ -8,28 +8,24 @@ class TwitterController < ApplicationController
       config.access_token_secret = ENV["TWITTER_ACCESS_TOKEN_SECRET"]
     end
 
-  @twusers = @client.user_search(params[:username])
+    if  (params[:username]).blank?
+      redirect_to root_path, :notice => "You didn't search for anything. Try again."
+    elsif @client.user_search(params[:username]).empty?
+      redirect_to root_path, :notice => "No results. Try again."
+    else
+      @twusers = @client.user_search(params[:username])
+      render :result
+    end
 
-    render :result
   end
 
   def create_feed
     @feed = Feed.new()
     @feed.handle = params["screen_name"]
+    @feed.uid = params["id"]
     @feed.social_media = "twitter"
     if @feed.save
       redirect_to root_path
-    end
-  end
-
-  def search_twitter
-    @feed = Feed.new
-    @search = search
-    if @search.empty?
-      redirect_to root_path, :notice => "You didn't search for anything. Try again."
-    else
-      @vimeo_results = Beemo::User.search(@search)
-      redirect_to root_path, :notice => "No results. Try again." if @vimeo_results.empty?
     end
   end
 

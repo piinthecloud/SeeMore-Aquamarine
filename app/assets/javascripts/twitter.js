@@ -3,9 +3,9 @@ $(function(){
     event.preventDefault();
 
     var button = $(this);
-    if (button == "Subscribe") {
-      (button = "Subscribed");
-    }
+    if (button.val == "Subscribe") {
+      (button.val = "Un-Subscribe");
+      }
 
     console.log(button.val());
 

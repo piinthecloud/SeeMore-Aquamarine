@@ -4,11 +4,8 @@
 
       <li style="text-decoration: none;", class="git_result">
         <%= image_tag( u.profile_image_uri(size = :normal) )%>
-        <%= u.screen_name %> <%= button_to "Subscribe", feed_path(u.screen_name), class: "btn btn-success choose twubmit" %></li><br />
+        <%= u.screen_name %> <%= button_to "Subscribe", feed_path(u.screen_name, id: u.id), class: "btn btn-success choose twubmit" %></li><br />
     <% end %>
 
   </ul>
-</div>
-<div class="span6 subd">
-    Blue Rectangle
 </div>
