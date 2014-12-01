@@ -1,5 +1,13 @@
 <% all_vimeos %>
 <% parse_vimeo %>
+<% @all_vimeos.each do |vimeo_account| %>
+  <% vimeo_account.posts.each do |video| %>
+    <ul class="vimeo-feed">
+      <li><%= vimeo_account.handle %> posted on <%= video.datetime %></li>
+    </ul>
+  <% end %>
+<% end %>
+<% raise %>
 <% @vimeos.each do |video| %>
   <ul class="vimeo-feed">
     <li><%= video["user_name"] %> posted on <%= (video["upload_date"]) %></li>

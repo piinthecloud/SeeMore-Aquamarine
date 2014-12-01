@@ -21,5 +21,5 @@ module VimeosHelper
   def get_vimeo_feed(handle)
     Vimeo::Simple::User.info(handle)
   end
-  
+
 end
