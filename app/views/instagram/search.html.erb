@@ -4,9 +4,10 @@
 <div class= "git_result">
   <%= image_tag "#{a["profile_picture"]}" %>
   <%= a["username"] %>
-  <%= button_to "Subscribe" , "/instagram/new", class:"btn btn-info" %>
+  <%= button_to "Subscribe" , instagram_new_path(id: a["id"]), class:"btn btn-info" %>
+
   <!-- In the hidden field I am passing though an the id to the controller when it does the post request, so that makes it aviable there -->
-  <% hidden_field_tag "id", value: a["id"] %>
+  <%# hidden_field_tag "id", value: a["id"] %>
 </div>
 
 <% end %>
