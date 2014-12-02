@@ -77,22 +77,20 @@ h3 {
 // LOGIN
 
 .login {
-  background-image: url(image_path("greenstar.gif")) ;
-  background-repeat: repeat;
-  margin-bottom: 0 auto;
-  text-align: center;
-  height: 140px;
+    background-image: url(image_path("greenstar.gif")) ;
+    background-repeat: repeat;
+    margin-bottom:0;
+    text-align: center;
+    height: 140px;
 }
 
-.media img{
+.media img {
   height: 50px;
   padding: 4px;
 }
 
 .media:hover img {
 }
-
-// FEED RESULTS
 
 .git_result{
   height: 110px;

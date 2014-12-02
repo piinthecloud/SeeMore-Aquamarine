@@ -8,15 +8,21 @@ class TwitterController < ApplicationController
       config.access_token_secret = ENV["TWITTER_ACCESS_TOKEN_SECRET"]
     end
 
-    @twusers = client.user_search(params["username"])
-
-    render :result
+    if  (params[:username]).blank?
+      redirect_to root_path, :notice => "You didn't search for anything. Try again."
+    elsif @client.user_search(params[:username]).empty?
+      redirect_to root_path, :notice => "No results. Try again."
+    else
+      @twusers = @client.user_search(params[:username])
+      render :result
+    end
 
   end
 
   def create_feed
     @feed = Feed.new()
     @feed.handle = params["screen_name"]
+    @feed.uid = params["id"]
     @feed.social_media = "twitter"
     if @feed.save
       redirect_to root_path
@@ -38,7 +44,7 @@ class TwitterController < ApplicationController
   end
 
   def twfeed
-    @twfeed = client.get_all_tweets("sferik")
+    @twfeed = @client.get_all_tweets("sferik")
 
   end
 
