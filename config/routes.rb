@@ -4,14 +4,14 @@ Rails.application.routes.draw do
 
   get "auth/:provider/callback",        to: "sessions#create"
 
-  delete "/",                           to: "sessions#destroy",  as: :logout
+  delete "/",                           to: "sessions#destroy"          ,as: :logout
 
   #MY ACCOUNT
-  get   "/my_account",                  to: "sessions#my_account",    as: :my_account
+  get   "/my_account",                  to: "sessions#my_account"       ,as: :my_account
 
   # TWITTER
   get   "/search/twitter",              to: "twitter#search"
-  post  "/feeds/twitter/:screen_name",  to: "subscriptions#subscribe", as: :feed
+  post  "/feeds/twitter/:screen_name",  to: "subscriptions#subscribe"   , as: :feed
   get   "/search/twitter",              to: "twitter#search"
   get   "/feeds/twitter/:handle",       to: "subscriptions#subscribe"
 
@@ -19,21 +19,21 @@ Rails.application.routes.draw do
 
   get "/vimeos/search_vimeo",           to: "vimeos#search_vimeo"
   post "/vimeos/search_vimeo",          to: "vimeos#search_vimeo"
-  post "/vimeos/",                      to: "vimeos#create_vimeo_feed", as: :create_vimeo_feed
-  delete "/vimeos/:id",                 to: "vimeos#delete_vimeo_feed", as: :delete_vimeo_feed
+  post "/vimeos/",                      to: "vimeos#create_vimeo_feed"  , as: :create_vimeo_feed
+  delete "/vimeos/:id",                 to: "vimeos#delete_vimeo_feed"  , as: :delete_vimeo_feed
 
   #GITHUB
-  get "/github/search_github",                  to: "github#search_github"
-  post "/github/search_github",                 to: "github#search_github"
-  post "/github/",                              to: "github#create_github_feed", as: :create_github_feed
-
+  get "/github/search_github",          to: "github#search_github"
+  post "/github/search_github",         to: "github#search_github"
+  post "/github/",                      to: "github#create_github_feed" , as: :create_gith
 
 
   # INSTAGRAM
-  get "/instagram/search"                  ,to: "instagram#search"
-  post"/instagram/search"                  ,to: "instagram#search"
-  post "/instagram/new"                    ,to: "instagram#create"
-  post "/instagram"                        ,to: "instagram#create" ,as: :feeds
+  get "/instagram/search"               ,to: "instagram#search"
+  post"/instagram/search"               ,to: "instagram#search"
+  post "/instagram/new"                 ,to: "instagram#create"
+  get "/instagram"                      ,to: "instagram#index"
+  post "/instagram"                     ,to: "instagram#create"         ,as: :feeds
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
