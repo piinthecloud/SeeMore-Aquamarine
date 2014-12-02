@@ -30,6 +30,8 @@
 
 <% all_git_feeds.each do |feed| %>
 
+
+
 <div class= "git_result">
   <% git_user = Octokit.user(feed.uid).to_hash %>
   <%= image_tag "#{git_user[:avatar_url]}", size:"100x100" %>

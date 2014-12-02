@@ -41,9 +41,20 @@
       <% else %>
           <p class="no-vimeos">Search for Vimeo users to grow your feed!</p>
       <% end %>
+
+      <h2>Your Github Feed</h2>
+      <% if !Feed.exists?(social_media: "github")%>
+          <p class="no-vimeos">Search for Github users to grow your feed!</p>
+      <% elsif @git_feeds == nil %>
+          <p class="no-vimeos">You've exceeded the ratelimit. Try checking again later</p>
+      <% else %>
+          <%= render "/github/feed_results" %>
+      <% end %>
+
     </div>
 
-    <h2>Your Github Feed</h2>
+
+
 
 
 <% else%>
