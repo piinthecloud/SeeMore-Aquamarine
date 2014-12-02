@@ -1,7 +1,7 @@
 class GithubController < ApplicationController
-  #
+
   # def initialize
-  #   @client = Octokit::Client.new(:access_token => auth_hash["credentials"]["token"])
+  #   @client = Octokit::Client.new(:access_token => Oauth.find(session[:user_id]).token)
   #
   # end
 
@@ -31,17 +31,7 @@ class GithubController < ApplicationController
     end
   end
 
-  def feed_results
-    @git_feeds = []
-    all_git_feeds.each do |feed|
-      @git_feeds << Octokit.user_events(feed.uid)
 
-    end
-
-
-
-
-  end
 
 
 

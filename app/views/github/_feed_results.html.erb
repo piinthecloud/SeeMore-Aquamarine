@@ -1,0 +1,17 @@
+
+<% @git_feeds.flatten.each do |event| %>
+
+
+
+  <div class= "git_feed_result">
+
+  <%= image_tag "#{event[:actor][:avatar_url]}", size:"100x100" %>
+    <p><%= event[:type] %> by
+    <a href= <%= Octokit.user(event[:actor][:id]).to_hash[:html_url]%>><%= event[:actor][:login] %></a>
+    in the following repo
+    <%=event[:repo][:name] %></p>
+
+  <p><a href= <%= Octokit.user(event[:actor][:id]).to_hash[:html_url]%>></a></p>
+  </div>
+
+<% end %>
