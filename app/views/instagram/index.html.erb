@@ -1,0 +1,16 @@
+<!-- Display images of the subscriptions -->
+
+<!-- feed.parsed_response["data"][0]["user"]["username"] -->
+
+<!-- feed.parsed_response["data"][0]["images"] -->
+<%#= form_tag @feed do |f|  %>
+<%#= hidden_field :id, value: f["id"] %>
+<%# end %>
+
+
+
+<% @feed.each do |f| %>
+  <% f.each do |pic|%>
+    <%= image_tag "#{pic["images"]["standard_resolution"]["url"]}" %>
+  <%end %>
+<% end %>
